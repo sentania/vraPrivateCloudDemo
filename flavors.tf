@@ -11,7 +11,7 @@ module flv_labcomp01 {
         memory = 2
         },
               {
-        name   = "Medium",
+        name   = "Standard",
         cpu_count = 3
         memory = 8
         },        {

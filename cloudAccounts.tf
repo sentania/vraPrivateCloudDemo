@@ -6,10 +6,27 @@ module ca_labcomp01 {
   source = "./vSphereCloudAccount"
   name                = "lab-comp01"
   datacollector       = ""
-  hostname            = "lab-comp01-vcenter.lab.sentania.net"
+  hostname            = "lab-comp01-vcenter.int.sentania.net"
   password            = var.serviceAccountPassword
   username            = var.serviceAccountUserName
   enabled_datacenters = ["lab-comp01"]
+  nsxManager          = module.ca_labmgmt01nsx.cloud_account.id
+  capability_tags     = [
+    {
+      key   = "cloud",
+      value = "vsphere"
+    }
+  ]
+}
+
+module ca_labcomp02 {
+  source = "./vSphereCloudAccount"
+  name                = "lab-comp02"
+  datacollector       = ""
+  hostname            = "lab-comp02-vcenter.int.sentania.net"
+  password            = var.serviceAccountPassword
+  username            = var.serviceAccountUserName
+  enabled_datacenters = ["lab-comp02"]
   nsxManager          = module.ca_labmgmt01nsx.cloud_account.id
   capability_tags     = [
     {

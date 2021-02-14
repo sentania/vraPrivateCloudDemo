@@ -1,4 +1,4 @@
-variable url {
+variable vra_url {
   type = string
   default = "https://api.mgmt.cloud.vmware.com"
 }
@@ -12,6 +12,9 @@ variable insecure {
   default = true
 }
 
+variable nsx_url {
+  type = string
+}
 variable serviceAccountUserName {
 }
 
