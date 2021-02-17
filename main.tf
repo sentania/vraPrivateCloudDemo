@@ -12,7 +12,7 @@ provider "nsxt" {
 }
 
 resource "time_sleep" "wait_90_seconds" {
-  depends_on = [module.ca_labcomp01]
+  depends_on = [module.ca_labmgmt01nsx]
 
   create_duration = "90s"
 }

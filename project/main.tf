@@ -21,4 +21,14 @@ resource "vra_project" "this" {
   operation_timeout = 6000
 
   machine_naming_template = var.basename
+  constraints {
+    dynamic  network {
+    for_each = var.networkConstraints
+    content {
+      expression   = network.value["expression"]
+      mandatory  = network.value["mandatory"]
+    }
+   }
+  }
+  
 }

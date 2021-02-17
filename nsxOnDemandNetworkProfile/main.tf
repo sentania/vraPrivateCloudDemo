@@ -19,7 +19,7 @@ resource "vra_network_profile" "subnet_isolation" {
       datacenterId = var.region.region
       edgeClusterRouterStateLink =  var.edgecluster 
       tier0LogicalRouterStateLink = var.logicalrouter 
-      onDemandNetworkIPAssignmentType = "mixed"
+      onDemandNetworkIPAssignmentType = var.addressMethod
   }
 
   dynamic tags {

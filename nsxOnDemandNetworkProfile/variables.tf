@@ -25,3 +25,6 @@ variable "addressSpace" {
 variable "cidr" {
   
 }
+variable "addressMethod" {
+  
+}

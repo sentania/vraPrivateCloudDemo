@@ -10,103 +10,16 @@ module np_PrivateCloudSandbox {
     region   = data.vra_region.network_region
     tier0_router = "lab-nsx-t0"
     network_domain_name = "lab-tz-ovly"
-    edgecluster = "/resources/routers/cf3250f3-988d-4709-af77-7d298ebbc26c" //can't find the API to reference this
-    logicalrouter = "/resources/routers/4fce496a-4e0f-4deb-ab61-af42bcb996c8" // same here
+    edgecluster = "/resources/routers/13ca5070-2464-41ca-96c3-a3464fba3957" //can't find the API to reference this
+    logicalrouter =   "/resources/routers/c57d7c13-f25f-41ae-8b9a-8921fdc971a4" // same here
     cloud_account = module.ca_labmgmt01nsx.cloud_account.id
     addressSpace = "10.100.200.0/24"
+    addressMethod = "mixed"
     cidr = "27"
-      capability_tags     = [
+    capability_tags     = [
     {
       key   = "environment",
       value = "sandbox"
     }
-  ]
-}
-module np_PrivateCloudTestPCI {
-    source   = "./nsxOnDemandNetworkProfile"
-    name     = "Private Cloud Test PCI"
-    region   = data.vra_region.network_region
-    tier0_router = "lab-nsx-t0"
-    network_domain_name = "lab-tz-ovly"
-    edgecluster = "/resources/routers/cf3250f3-988d-4709-af77-7d298ebbc26c" //can't find the API to reference this
-    logicalrouter = "/resources/routers/4fce496a-4e0f-4deb-ab61-af42bcb996c8" // same here
-    cloud_account = module.ca_labmgmt01nsx.cloud_account.id
-    addressSpace = "10.100.201.0/24"
-    cidr = "27"
-      capability_tags     = [
-    {
-      key   = "environment",
-      value = "test"
-    },
-    {
-      key   = "compliance",
-      value = "pci"
-    },
-  ]
-}
-module np_PrivateCloudTestNonPCI {
-    source   = "./nsxOnDemandNetworkProfile"
-    name     = "Private Cloud Test NonPCI"
-    region   = data.vra_region.network_region
-    tier0_router = "lab-nsx-t0"
-    network_domain_name = "lab-tz-ovly"
-    edgecluster = "/resources/routers/cf3250f3-988d-4709-af77-7d298ebbc26c" //can't find the API to reference this
-    logicalrouter = "/resources/routers/4fce496a-4e0f-4deb-ab61-af42bcb996c8" // same here
-    cloud_account = module.ca_labmgmt01nsx.cloud_account.id
-    addressSpace = "10.100.202.0/24"
-    cidr = "27"
-      capability_tags     = [
-    {
-      key   = "environment",
-      value = "test"
-    },
-    {
-      key   = "compliance",
-      value = "nonpci"
-    },
-  ]
-}
-module np_PrivateCloudProductionPCI {
-    source   = "./nsxOnDemandNetworkProfile"
-    name     = "Private Cloud Production PCI"
-    region   = data.vra_region.network_region
-    tier0_router = "lab-nsx-t0"
-    network_domain_name = "lab-tz-ovly"
-    edgecluster = "/resources/routers/cf3250f3-988d-4709-af77-7d298ebbc26c" //can't find the API to reference this
-    logicalrouter = "/resources/routers/4fce496a-4e0f-4deb-ab61-af42bcb996c8" // same here
-    cloud_account = module.ca_labmgmt01nsx.cloud_account.id
-    addressSpace = "10.100.203.0/24"
-    cidr = "27"
-      capability_tags     = [
-    {
-      key   = "environment",
-      value = "production"
-    },
-    {
-      key   = "compliance",
-      value = "pci"
-    },
-  ]
-}
-module np_PrivateCloudProductionNonPCI {
-    source   = "./nsxOnDemandNetworkProfile"
-    name     = "Private Cloud Production NonPCI"
-    region   = data.vra_region.network_region
-    tier0_router = "lab-nsx-t0"
-    network_domain_name = "lab-tz-ovly"
-    edgecluster = "/resources/routers/cf3250f3-988d-4709-af77-7d298ebbc26c" //can't find the API to reference this
-    logicalrouter = "/resources/routers/4fce496a-4e0f-4deb-ab61-af42bcb996c8" // same here
-    cloud_account = module.ca_labmgmt01nsx.cloud_account.id
-    addressSpace = "10.100.204.0/24"
-    cidr = "27"
-      capability_tags     = [
-    {
-      key   = "environment",
-      value = "production"
-    },
-    {
-      key   = "compliance",
-      value = "nonpci"
-    },
   ]
 }
