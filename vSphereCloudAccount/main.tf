@@ -1,3 +1,10 @@
+provider "vsphere" {
+  user           = var.serviceAccountUserName
+  password       = var.serviceAccountPassword
+  vsphere_server = var.hostname
+  # If you have a self-signed cert
+  allow_unverified_ssl = true
+}
 
 data vra_data_collector "this" {
   count = var.datacollector != "" ? 1 : 0

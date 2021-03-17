@@ -11,10 +11,3 @@ provider "nsxt" {
   allow_unverified_ssl  = var.insecure
 }
 
-provider "vsphere" {
-  user           = var.serviceAccountUserName
-  password       = var.serviceAccountPassword
-  vsphere_server = var.hostname
-  # If you have a self-signed cert
-  allow_unverified_ssl = true
-}
