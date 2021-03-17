@@ -10,7 +10,7 @@ deleteDir()
         sh 'unzip terraform_0.14.7_linux_amd64.zip'
       }
 
-        withCredentials([usernamePassword(credentialsId: 'vRA_System_Admin',
+        withCredentials([usernamePassword(credentialsId: 'PrivateCloudServiceID',
         usernameVariable: 'vRAUserName', passwordVariable: 'vRAPassword')]) {
           stage ('Generate API TOKEN') {
           sh 'chmod +x ./generate_token.sh'
