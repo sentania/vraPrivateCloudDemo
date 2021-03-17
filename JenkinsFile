@@ -9,6 +9,7 @@ deleteDir()
         sh 'wget https://releases.hashicorp.com/terraform/0.14.7/terraform_0.14.7_linux_amd64.zip'
         sh 'unzip terraform_0.14.7_linux_amd64.zip'
       }
+      withSecretEnv([[var: 'refresh_token']]) {
       withCredentials([usernamePassword(credentialsId: 'vRA_System_Admin',
       usernameVariable: 'vRAUserName', passwordVariable: 'vRAPassword')]) {
         stage ('Generate API TOKEN') {
@@ -27,5 +28,6 @@ deleteDir()
             sh './terraform apply -state="/var/lib/jenkins/terraform/vRAPrivateCloud.tfstate" -input=false deploymentPlan'
           }
         }
+      }
         
 }
