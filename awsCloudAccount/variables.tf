@@ -16,4 +16,6 @@ variable capability_tags {
   description = "Capability tags to be applied to the Cloud Zone"
   default = []
 }
+variable enabled_regions {
 
+}

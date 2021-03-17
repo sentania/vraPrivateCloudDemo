@@ -68,6 +68,7 @@ module ca_vmwareaws{
   description = "AWS Subscription provided by VMware"
   access_key = var.awsAccessKey
   secret_key = var.awsSecretKey
+  enabled_regions = ["us-east-1", "us-west-1"]
   capability_tags = [
     {
       key   = "cloud",

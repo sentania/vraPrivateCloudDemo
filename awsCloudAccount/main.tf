@@ -3,7 +3,7 @@ resource "vra_cloud_account_aws" "this" {
   description = var.description
   access_key  = var.access_key
   secret_key  = var.secret_key
-  regions     = ["us-east-1", "us-west-1"]
+  regions     = var.enabled_regions
 
   dynamic tags {
     for_each = var.capability_tags
