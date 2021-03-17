@@ -1,6 +1,4 @@
-/*
-Note that you can also use the environment variables VRA_REFRESH_TOKEN and VRA_URL in leiu of the above provider block.
-*/
+####ON PREM vSphere Infrastructure
 
 module ca_labcomp01 {
   source = "./vSphereCloudAccount"
@@ -15,6 +13,10 @@ module ca_labcomp01 {
     {
       key   = "cloud",
       value = "vsphere"
+    },
+    {
+      key   = "availabilityZone",
+      value = "az1"
     }
   ]
 }
@@ -32,6 +34,10 @@ module ca_labcomp02 {
     {
       key   = "cloud",
       value = "vsphere"
+    },
+    {
+      key   = "availabilityZone",
+      value = "az2"
     }
   ]
 }
@@ -51,3 +57,22 @@ module ca_labmgmt01nsx {
     }
   ]
 }
+
+
+###END vSphere
+
+#AWS Subscription
+module ca_vmwareawx{
+  source = "./awsCloudAccount"
+  name = "VMware AWS"
+  description = "AWS Subscription provided by VMware"
+  access_key = var.awsAccessKey
+  secret_key = var.awsSecretKey
+  capability_tags = [
+    {
+      key   = "cloud",
+      value = "aws"
+    }
+  ]
+}
+#END AWS Subscription

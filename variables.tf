@@ -19,5 +19,12 @@ variable serviceAccountUserName {
 }
 
 variable serviceAccountPassword {
+}
+
+variable awsSecretKey {
+
+}
+
+variable awsAccessKey {
 
 }
