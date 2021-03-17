@@ -14,7 +14,9 @@ deleteDir()
         stage ('Generate API TOKEN') {
         sh 'chmod +x ./generate_token.sh'
         tmp_param = sh (script:'./generate_token.sh --username $vRAUserName --password $vRAPassword --domain int.sentania.net --host vra8.lab.sentania.net', returnStdout: true).trim()
-        refresh_token = tmp_param  
+        environment { 
+                    refresh_token= tmp_param
+                }
         }
       }
           
