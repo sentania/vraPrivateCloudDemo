@@ -1,0 +1,30 @@
+node () {
+
+deleteDir()
+
+      stage ('Checkout Build Code') {
+         checkout scm
+       }
+      stage ('Download Terraform') {
+        sh 'wget https://releases.hashicorp.com/terraform/0.14.7/terraform_0.14.7_linux_amd64.zip'
+        sh 'unzip terraform_0.14.7_linux_amd64.zip'
+      }
+
+        withCredentials([usernamePassword(credentialsId: 'vRA_System_Admin',
+        usernameVariable: 'vRAUserName', passwordVariable: 'vRAPassword')]) {
+          stage ('Generate API TOKEN') {
+          sh 'chmod +x ./generate_token.sh'
+          tmp_param = sh (script:'./generate_token.sh --username $vRAUserName --password $vRAPassword --domain int.sentania.net --host vra8.lab.sentania.net', returnStdout: true).trim()
+          refresh_token = tmp_param
+          echo "$refresh_token"   
+          }
+        
+        stage("Execute Terraform Deployment") {
+          echo "$refresh_token"   
+          sh './terraform init'
+          sh './terraform providers'
+          sh './terraform plan --var refresh_token=lXe0FkKUjG0yu6zzKGuP6zlHeAEsHTnt -var nsx_url=lab-mgmt01-nsx01.lab.sentania.net -var vra_url=https://vra8.lab.sentania.net -var serviceAccountUserName=$vRAUserName -var serviceAccountPassword=$vRAPassword -state="/var/lib/jenkins/terraform/vRAPrivateCloud.tfstate" -out="deploymentPlan"'
+          sh './terraform apply -state="/var/lib/jenkins/terraform/vRAPrivateCloud.tfstate" -input=false deploymentPlan'
+        }
+        }
+}
