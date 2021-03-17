@@ -62,7 +62,7 @@ module ca_labmgmt01nsx {
 ###END vSphere
 
 #AWS Subscription
-module ca_vmwareawx{
+module ca_vmwareaws{
   source = "./awsCloudAccount"
   name = "VMware AWS"
   description = "AWS Subscription provided by VMware"

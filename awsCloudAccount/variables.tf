@@ -11,3 +11,9 @@ variable description {
 variable name {
   type    = string
 }
+variable capability_tags {
+  type        = list(map(string))
+  description = "Capability tags to be applied to the Cloud Zone"
+  default = []
+}
+
