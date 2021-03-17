@@ -19,10 +19,9 @@ deleteDir()
         }
       }
           
-        withCredentials([usernamePassword(credentialsId: 'PrivateCloudServiceID',
-        usernameVariable: 'vRAUserName', passwordVariable: 'vRAPassword')],
-        [usernamePassword(credentialsId: 'awsAccessKey',
-        usernameVariable: 'access_key', passwordVariable: 'secret_key')]) {
+        withCredentials([
+          usernamePassword(credentialsId: 'PrivateCloudServiceID',usernameVariable: 'vRAUserName', passwordVariable: 'vRAPassword'),
+          usernamePassword(credentialsId: 'awsAccessKey' usernameVariable: 'access_key', passwordVariable: 'secret_key')]) {
           stage("Execute Terraform Deployment") {
             echo "$refresh_token"   
             sh './terraform init'
