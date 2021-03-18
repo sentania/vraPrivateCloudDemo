@@ -31,3 +31,21 @@ module cz_labcomp02 {
     }
   ]
 }
+
+data "vra_region" "vmw_us_east_1" {
+  cloud_account_id = module.cz_labcomp02.id
+  region           = "us-east-1"
+}
+
+module cz_vmwareaws_us_east_1 {
+  source        = "./cloudZone"
+  name          = "VMware AWS "
+  description   = "VMware AWS US East 1"
+  region        =  data.vra_region.vmw_us_east_1.id
+  capability_tags     = [
+    {
+      key   = "cloud",
+      value = "vsphere"
+    }
+  ]
+}
