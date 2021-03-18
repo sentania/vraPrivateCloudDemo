@@ -33,7 +33,7 @@ module cz_labcomp02 {
 }
 
 data "vra_region" "vmw_us_east_1" {
-  cloud_account_id = module.vra_region.ca_vmwareaws.id
+  cloud_account_id = module.ca_vmwareaws.cloud_account.id
   region           = "us-east-1"
 }
 
