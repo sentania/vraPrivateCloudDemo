@@ -45,7 +45,7 @@ module cz_vmwareaws_us_east_1 {
   capability_tags     = [
     {
       key   = "cloud",
-      value = "vsphere"
+      value = "aws"
     }
   ]
 }
