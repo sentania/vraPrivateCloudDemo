@@ -1,7 +1,7 @@
 module Private_Cloud_Sandbox_Simple_blueprint {
     source           = "./blueprint"
     blueprint_name = "Simple Blueprint"
-    projectid = module.cz_labcomp01.Private_Cloud_Sandbox.id
+    projectid = module.Private_Cloud_Sandbox.project.id
     content = <<-EOT
     formatVersion: 1
     inputs: {}
