@@ -29,7 +29,7 @@ module Private_Cloud_Sandbox_Simple_blueprint {
   EOT
 }
 
-module Private_Cloud_Sandbox_Simple_blueprint {
+module Private_Cloud_Sandbox_Simple_blueprint2 {
     source           = "./blueprint"
     blueprint_name = "Simple Blueprint2"
     projectid = module.Private_Cloud_Sandbox.project.id
