@@ -5,13 +5,7 @@ module Private_Cloud_Sandbox_Simple_blueprint {
     content = <<-EOT
     formatVersion: 1
     inputs: {}
-    resources:
-      Cloud_SecurityGroup_1:
-        type: Cloud.SecurityGroup
-        properties:
-          constraints:
-            - tag: "sg:RiskyBusiness"
-          securityGroupType: existing
+    version: 1
       Cloud_Machine_1:
         type: Cloud.Machine
         properties:
