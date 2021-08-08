@@ -61,14 +61,14 @@ module flv_vmw_us_east_1 {
     flavor_mappings     = [
         {
         name   = "Small",
-        instance_type  = t2.small
+        instance_type  = "t2.small"
         },
               {
         name   = "Standard",
-        instance_type  = t2.medium
+        instance_type  = "t2.medium"
         },        {
         name   = "Large",
-        instance_type  = t2.large
+        instance_type  = "t2.large"
         }
     ]
     region_id = data.vra_region.flavor_region_aws_us_east1.id
