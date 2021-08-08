@@ -39,7 +39,7 @@ data "vra_region" "vmw_us_east_1" {
 
 module cz_vmwareaws_us_east_1 {
   source        = "./cloudZone"
-  name          = "VMware AWS "
+  name          = "VMware AWS US East 1"
   description   = "VMware AWS US East 1"
   region        =  data.vra_region.vmw_us_east_1.id
   capability_tags     = [
