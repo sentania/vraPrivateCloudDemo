@@ -55,7 +55,7 @@ data "vra_region" "flavor_region_aws_us_east1"{
     region = module.cz_vmwareaws_us_east_1.enabled_regions[0].region
     cloud_account_id = module.cz_vmwareaws_us_east_1.cloud_account.id
 }
-module flv_labcomp02 {
+module flv_vmw_us_east_1 {
     source           = "./flavor_profile"
     name = "cz_vmwareaws_us_east_1"
     flavor_mappings     = [
