@@ -1,6 +1,6 @@
 data aws_regions "this" {
   for_each = toset(var.enabled_regions)
-  name     = each.value
+  names     = each.value
 }
 
 resource "vra_cloud_account_aws" "this" {
