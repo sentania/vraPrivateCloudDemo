@@ -1,3 +1,8 @@
+data aws_regions "this" {
+  for_each = toset(var.enabled_datacenters)
+  name     = each.value
+}
+
 resource "vra_cloud_account_aws" "this" {
   name        = replace(var.name, " ", "_")
   description = var.description
