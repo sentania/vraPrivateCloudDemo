@@ -1,5 +1,5 @@
 data aws_regions "this" {
-  for_each = toset(var.enabled_datacenters)
+  for_each = toset(var.enabled_regions)
   name     = each.value
 }
 
