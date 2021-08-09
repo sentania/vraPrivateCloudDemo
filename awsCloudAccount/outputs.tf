@@ -7,8 +7,7 @@ output cloud_account {
 output enabled_regions {
   value = [
     for k, v in data.vra_cloud_account_aws.this: {
-      "name"   = v.name,
-      "region" = v.region,
+      "name"   = v.region,
       "region_id" = v.region_ids
     }
   ]
