@@ -1,8 +1,3 @@
-data aws_regions "this" {
-  for_each = toset(var.enabled_regions)
-  names     = each.value
-}
-
 resource "vra_cloud_account_aws" "this" {
   name        = replace(var.name, " ", "_")
   description = var.description
@@ -17,4 +12,10 @@ resource "vra_cloud_account_aws" "this" {
       value = tags.value["value"]
     }
   }
+}
+
+data "vra_cloud_account_aws" "this" {
+  name = replace(var.name, " ", "_")
+
+  depends_on = [vra_cloud_account_aws.this]
 }
