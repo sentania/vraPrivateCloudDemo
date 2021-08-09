@@ -15,9 +15,9 @@ resource "vra_project" "this" {
   
   shared_resources = true
 
-  administrator_roles = var.administrators
+  administrators = var.administrators
 
-  member_roles = var.users
+  members = var.users
   operation_timeout = 6000
 
   machine_naming_template = var.basename
