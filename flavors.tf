@@ -50,3 +50,4 @@ module flv_labcomp02 {
     ]
     region_id = data.vra_region.flavor_region_labcomp02.id
 }
+
