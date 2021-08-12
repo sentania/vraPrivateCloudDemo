@@ -32,3 +32,20 @@ module cz_labcomp02 {
   ]
 }
 
+data "vra_region" "vmw_us_east_2" {
+  cloud_account_id = module.ca_vmwareaws.cloud_account.id
+  region           = "us-east-2"
+}
+
+module cz_vmwareaws_us_east_2 {
+  source        = "./cloudZone"
+  name          = "VMware AWS US East 2"
+  description   = "VMware AWS US East 2"
+  region        =  data.vra_region.vmw_us_east_2.id
+  capability_tags     = [
+    {
+      key   = "cloud",
+      value = "aws"
+    }
+  ]
+}
