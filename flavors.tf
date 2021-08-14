@@ -50,8 +50,3 @@ module flv_labcomp02 {
     ]
     region_id = data.vra_region.flavor_region_labcomp02.id
 }
-
-data "vra_region" "flavor_region_cz_vmwareaws_us_east_2"{
-    region_id = module.cz_vmwareaws_us_east_2.cloud_zone.region_id
-    cloud_account_id = module.ca_vmwareaws.cloud_account.id
-}
