@@ -67,5 +67,5 @@ module flv_vmw_us_east_2 {
         instance_type  = "t2.large"
         }
     ]
-    region_id = module.cz_vmwareaws_us_east_2.region_id
+    region_id = module.cz_vmwareaws_us_east_2.cloud_zone.region_id
 }
