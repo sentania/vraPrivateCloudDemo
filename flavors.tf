@@ -71,5 +71,5 @@ module flv_vmw_us_east_2 {
         instance_type  = "t2.large"
         }
     ]
-    region_id = data.vra_region.flavor_region_vz_vmwareaws_us_east_2.id
+    region_id = data.vra_region.flavor_region_cz_vmwareaws_us_east_2.id
 }
