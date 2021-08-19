@@ -50,21 +50,3 @@ module flv_labcomp02 {
     ]
     region_id = data.vra_region.flavor_region_labcomp02.id
 }
-module flv_vmw_us_east_2 {
-    source = "./flavor_profile"
-    name = "cz_vmwareaws_us_east_2"
-    flavor_mappings     = [
-        {
-        name   = "Small",
-        instance_type  = "t2.small"
-        },
-              {
-        name   = "Standard",
-        instance_type  = "t2.medium"
-        },        {
-        name   = "Large",
-        instance_type  = "t2.large"
-        }
-    ]
-    region_id = module.cz_vmwareaws_us_east_2.cloud_zone.region_id
-}
