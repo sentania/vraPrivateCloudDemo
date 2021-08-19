@@ -1,7 +1,6 @@
-data "vra_region" "image_region"{
+data "vra_region" "labcomp01_image_region"{
     region = module.ca_labcomp01.enabled_regions[0].region
     cloud_account_id = module.ca_labcomp01.cloud_account.id
-    depends_on = [time_sleep.wait_90_seconds]
 }
 
 module img_labcomp01 {
@@ -23,14 +22,13 @@ module img_labcomp01 {
     }
   ]
     
-    region = data.vra_region.image_region
+    region = data.vra_region.labcomp01_image_region
     cloud_account = module.ca_labcomp01.cloud_account.id
 }
 
-data "vra_region" "image_region"{
-    region = module.ca_labcomp01.enabled_regions[0].region
-    cloud_account_id = module.ca_labcomp01.cloud_account.id
-    depends_on = [time_sleep.wait_90_seconds]
+data "vra_region" "labcomp02_image_region"{
+    region = module.ca_labcomp02.enabled_regions[0].region
+    cloud_account_id = module.ca_labcomp02.cloud_account.id
 }
 
 module img_labcomp02 {
@@ -52,6 +50,6 @@ module img_labcomp02 {
     }
   ]
     
-    region = data.vra_region.image_region
+    region = data.vra_region.labcomp02_image_region
     cloud_account = module.ca_labcomp02.cloud_account.id
 }
