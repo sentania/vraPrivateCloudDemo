@@ -32,9 +32,10 @@ module Moad_OpenCart {
     administrators   = ["vradmins@int.sentania.net","labadmins@int.sentania.net"]
     users            = ["terraform@int.sentania.net"]
     basename         =  "vra$${#####}"
-    networkConstraints     = [
+    networkConstraints  = [
     {
       expression   = "environment:privatecloud",
       mandatory = "true"
     }
+    ]
 }
