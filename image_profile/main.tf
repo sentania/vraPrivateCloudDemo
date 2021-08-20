@@ -1,5 +1,5 @@
 data "vra_image" "this" {
-  count = length(var.image_name)
+  count = length(var.image_mappings)
   filter = "name eq '${var.image_mappings[count.index].image_name}' and externalRegionId eq '${var.region.id}'"
 }
 
