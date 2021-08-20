@@ -1,3 +1,7 @@
+data "vra_image" "this" {
+  filter = "name eq '${var.image_name}' and externalRegionId eq '${var.region.id}'"
+}
+
 resource "vra_image_profile" "this" {
   name        = var.image_name
   description = var.image_description
