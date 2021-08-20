@@ -20,8 +20,7 @@ module img_labcomp01 {
       image_description = "ubuntu18-dhcp",
       cloud_config = ""
     }
-  ]
-    
+  ]    
     region = data.vra_region.labcomp01_image_region
     cloud_account = module.ca_labcomp01.cloud_account.id
 }
