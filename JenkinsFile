@@ -22,7 +22,6 @@ deleteDir()
           usernamePassword(credentialsId: 'awsAccessKey', usernameVariable: 'access_key', passwordVariable: 'secret_key')]) {
           stage("Execute Terraform Deployment") {  
             sh './terraform init'
-            sh './terraform providers'
             sh "./terraform plan --var refresh_token=$refresh_token -var nsx_url=lab-mgmt01-nsx01.lab.sentania.net -var vra_url=https://vra.lab.sentania.net -var serviceAccountUserName=$vRAUserName -var serviceAccountPassword=$vRAPassword -var awsAccessKey=$access_key -var awsSecretKey=$secret_key -state=/var/lib/jenkins/terraform/vRAPrivateCloud.tfstate -out=deploymentPlan"
             sh './terraform apply -state="/var/lib/jenkins/terraform/vRAPrivateCloud.tfstate" -input=false deploymentPlan'
           }
