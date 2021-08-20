@@ -10,13 +10,13 @@ module img_labcomp01 {
     image_mappings     = [
     {
       image_name = "centOS7",
-      template_name = "lab-comp01-vcenter / centos7Template", //when referencing a content library you must preceed the template name with it
+      template_name = "lab-comp01 / centos7Template", //when referencing a content library you must preceed the template name with it
       image_description = "CentOS 7 Template",
       cloud_config = ""
     },
     {
       image_name = "ubuntu18-dhcp",
-      template_name = "lab-comp01-vcenter / ubuntu18-dhcp", //when referencing a content library you must preceed the template name with it 
+      template_name = "lab-comp01 / ubuntu18-dhcp", //when referencing a content library you must preceed the template name with it 
       image_description = "ubuntu18-dhcp",
       cloud_config = ""
     }
@@ -38,13 +38,13 @@ module img_labcomp02 {
     image_mappings     = [
     {
       image_name = "centOS7",
-      template_name = "lab-comp02-vcenter / centos7Template", //when referencing a content library you must preceed the template name with it
+      template_name = "lab-comp02 / centos7Template", //when referencing a content library you must preceed the template name with it
       image_description = "CentOS 7 Template",
       cloud_config = ""
     },
     {
       image_name = "ubuntu18-dhcp",
-      template_name = "lab-comp02-vcenter / ubuntu18-dhcp", //when referencing a content library you must preceed the template name with it 
+      template_name = "lab-comp02 / ubuntu18-dhcp", //when referencing a content library you must preceed the template name with it 
       image_description = "ubuntu18-dhcp",
       cloud_config = ""
     }
