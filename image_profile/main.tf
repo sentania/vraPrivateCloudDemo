@@ -1,5 +1,6 @@
 data "vra_image" "this" {
-  filter = "name eq '${var.image_name}' and externalRegionId eq '${var.region.id}'"
+  count = length(var.image_name)
+  filter = "name eq '${var.image_name[count.index]}' and externalRegionId eq '${var.region.id}'"
 }
 
 resource "vra_image_profile" "this" {
