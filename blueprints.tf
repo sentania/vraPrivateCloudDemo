@@ -5,12 +5,12 @@ module Private_Cloud_Sandbox_Simple_blueprint {
     content = <<-EOT
     formatVersion: 1
     inputs: {}
-    version: 1.1.1
+    version: 1.1.2
     resources:
       Cloud_Machine_1:
         type: Cloud.Machine
         properties:
-          image: CentOS7
+          image: centOS7
           flavor: Small
           networks:
             - network: "$${resource.Cloud_NSX_Network_1.id}"
