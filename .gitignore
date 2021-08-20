@@ -31,5 +31,6 @@ override.tf.json
 
 #Some miscellanous stuff for my debugging uses
 clitemplate.txt
+test.tf
 get_token.ps1
 
