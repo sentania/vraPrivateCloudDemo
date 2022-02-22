@@ -6,24 +6,25 @@ deleteDir()
          checkout scm
        }
       stage ('Download Terraform') {
-        sh 'wget https://releases.hashicorp.com/terraform/1.0.4/terraform_1.0.4_linux_amd64.zip'
-        sh 'unzip terraform_1.0.4_linux_amd64.zip'
+        sh 'wget https://releases.hashicorp.com/terraform/1.1.6/terraform_1.1.6_linux_amd64.zip'
+        sh 'unzip terraform_1.1.6_linux_amd64.zip'
       }
-      withCredentials([usernamePassword(credentialsId: 'vRA_System_Admin',
-      usernameVariable: 'vRAUserName', passwordVariable: 'vRAPassword')]) {
-        stage ('Generate API TOKEN') {
-        sh 'chmod +x ./generate_token.sh'
-        refresh_token = sh (script:'./generate_token.sh --username $vRAUserName --password $vRAPassword --domain int.sentania.net --host vra.lab.sentania.net', returnStdout: true).trim()
+
+        withCredentials([usernamePassword(credentialsId: 'vRA_System_Admin',
+        usernameVariable: 'vRAUserName', passwordVariable: 'vRAPassword')]) {
+          stage ('Generate API TOKEN') {
+          sh 'chmod +x ./generate_token.sh'
+          tmp_param = sh (script:'./generate_token.sh --username $vRAUserName --password $vRAPassword --domain int.sentania.net --host vra8.lab.sentania.net', returnStdout: true).trim()
+          refresh_token = tmp_param
+          }
         }
-      }
-          
         withCredentials([
           usernamePassword(credentialsId: 'PrivateCloudServiceID',usernameVariable: 'vRAUserName', passwordVariable: 'vRAPassword'),
           usernamePassword(credentialsId: 'awsAccessKey', usernameVariable: 'access_key', passwordVariable: 'secret_key')]) {
           stage("Execute Terraform Deployment") {  
             sh './terraform init'
             sh 'export TF_LOG=trace'
-            sh "./terraform plan --var refresh_token=$refresh_token -var nsx_url=lab-mgmt01-nsx01.lab.sentania.net -var vra_url=https://vra.lab.sentania.net -var serviceAccountUserName=$vRAUserName -var serviceAccountPassword=$vRAPassword -var awsAccessKey=$access_key -var awsSecretKey=$secret_key -state=/var/lib/jenkins/terraform/vRAPrivateCloud.tfstate -out=deploymentPlan"
+            sh "./terraform plan -var refresh_token=${refresh_token} -var nsx_url=lab-mgmt01-nsx01.lab.sentania.net -var vra_url=https://vra.lab.sentania.net -var serviceAccountUserName=$vRAUserName -var serviceAccountPassword=$vRAPassword -var awsAccessKey=$access_key -var awsSecretKey=$secret_key -state=/var/lib/jenkins/terraform/vRAPrivateCloud.tfstate -out=deploymentPlan"
             sh './terraform apply -state="/var/lib/jenkins/terraform/vRAPrivateCloud.tfstate" -input=false deploymentPlan'
           }
         }        
