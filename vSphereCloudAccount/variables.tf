@@ -40,4 +40,5 @@ variable enabled_datacenters {
 }
 
 variable nsxManager {
+  default = ""
 }
