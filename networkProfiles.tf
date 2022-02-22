@@ -7,8 +7,8 @@ module np_PrivateCloudSandbox_labcomp01 {
     source   = "./nsxOnDemandNetworkProfile"
     name     = "Private Cloud Sandbox Labcomp01"
     region   = data.vra_region.labcomp01_network_region
-    tier0_router = "lab-nsx-t0"
-    network_domain_name = "lab-tz-ovly"
+    tier0_router = "lab-comp-t0"
+    network_domain_name = "tz-overlay"
     edgecluster = "/resources/routers/2069569e-f49d-457b-b184-1f4bf5d46791" //This is a private API call provisioning/uerp/resources/routers
     logicalrouter =   "/resources/routers/c1db2338-2fd1-4bcb-a4d7-aa13eca826d4" // same here
     cloud_account = module.ca_labmgmt01nsx.cloud_account.id
@@ -27,8 +27,8 @@ module np_privatecloud_labcomp01 {
     source   = "./nsxOnDemandNetworkProfile"
     name     = "Private Cloud Labcomp01"
     region   = data.vra_region.labcomp01_network_region
-    tier0_router = "lab-nsx-t0"
-    network_domain_name = "lab-tz-ovly"
+    tier0_router = "lab-comp-t0"
+    network_domain_name = "tz-overlay"
     edgecluster = "/resources/routers/2069569e-f49d-457b-b184-1f4bf5d46791" //This is a private API call provisioning/uerp/resources/routers
     logicalrouter =   "/resources/routers/c1db2338-2fd1-4bcb-a4d7-aa13eca826d4" // same here
     cloud_account = module.ca_labmgmt01nsx.cloud_account.id
@@ -52,8 +52,8 @@ module np_PrivateCloudSandbox_labcomp02 {
     source   = "./nsxOnDemandNetworkProfile"
     name     = "Private Cloud Sandbox Labcomp02"
     region   = data.vra_region.labcomp02_network_region
-    tier0_router = "lab-nsx-t0"
-    network_domain_name = "lab-tz-ovly"
+    tier0_router = "lab-comp-t0"
+    network_domain_name = "tz-overlay"
     edgecluster = "/resources/routers/2069569e-f49d-457b-b184-1f4bf5d46791" //This is a private API call provisioning/uerp/resources/routers
     logicalrouter =   "/resources/routers/c1db2338-2fd1-4bcb-a4d7-aa13eca826d4" // same here
     cloud_account = module.ca_labmgmt01nsx.cloud_account.id
@@ -72,8 +72,8 @@ module np_privatecloud_labcomp02 {
     source   = "./nsxOnDemandNetworkProfile"
     name     = "Private Cloud Labcomp02"
     region   = data.vra_region.labcomp02_network_region
-    tier0_router = "lab-nsx-t0"
-    network_domain_name = "lab-tz-ovly"
+    tier0_router = "lab-comp-t0"
+    network_domain_name = "tz-overlay"
     edgecluster = "/resources/routers/2069569e-f49d-457b-b184-1f4bf5d46791" //This is a private API call provisioning/uerp/resources/routers
     logicalrouter =   "/resources/routers/c1db2338-2fd1-4bcb-a4d7-aa13eca826d4" // same here
     cloud_account = module.ca_labmgmt01nsx.cloud_account.id
