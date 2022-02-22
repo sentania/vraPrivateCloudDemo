@@ -8,7 +8,7 @@ module ca_labcomp01 {
   password            = var.serviceAccountPassword
   username            = var.serviceAccountUserName
   enabled_datacenters = ["lab-comp01"]
-  nsxManager          = module.ca_labmgmt01nsx.cloud_account.id
+  nsxManager          = module.ca_labcompnsx01.cloud_account.id
   capability_tags     = [
     {
       key   = "cloud",
@@ -29,7 +29,7 @@ module ca_labcomp02 {
   password            = var.serviceAccountPassword
   username            = var.serviceAccountUserName
   enabled_datacenters = ["lab-comp02"]
-  nsxManager          = module.ca_labmgmt01nsx.cloud_account.id
+  nsxManager          = module.ca_labcompnsx01.cloud_account.id
   capability_tags     = [
     {
       key   = "cloud",
@@ -42,11 +42,11 @@ module ca_labcomp02 {
   ]
 }
 
-module ca_labmgmt01nsx {
+module ca_labcompnsx01 {
   source = "./nsxCloudAccount"
-  name                = "labmgmt01nsx"
+  name                = "labcompnsx01"
   datacollector       = ""
-  hostname            = "lab-mgmt01-nsx01.lab.sentania.net"
+  hostname            = "lab-comp-nsx01.lab.sentania.net"
   password            = var.serviceAccountPassword
   username            = var.serviceAccountUserName
   manager_mode        = true  #manager mode
