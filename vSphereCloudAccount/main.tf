@@ -8,6 +8,7 @@ data vra_region_enumeration_vsphere "this" {
   password                = var.password
   hostname                = var.hostname
   dcid                    = var.datacollector  != "" ? data.vra_data_collector.this[0].id : var.datacollector
+  accept_self_signed_cert = true
 }
 
 resource vra_cloud_account_vsphere "this" {
