@@ -1,17 +1,12 @@
-provider "vsphere" {
-  user           = var.username
-  password       = var.password
-  vsphere_server = var.hostname
-  # If you have a self-signed cert
-  allow_unverified_ssl = true
-}
-
 data vra_data_collector "this" {
   count = var.datacollector != "" ? 1 : 0
   name = var.datacollector
 }
 
 data vra_region_enumeration_vsphere "this" {
+  username                = var.username
+  password                = var.password
+  hostname                = var.hostname
   dcid                    = var.datacollector  != "" ? data.vra_data_collector.this[0].id : var.datacollector
 }
 
