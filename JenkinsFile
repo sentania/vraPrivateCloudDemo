@@ -6,8 +6,8 @@ deleteDir()
          checkout scm
        }
       stage ('Download Terraform') {
-        sh 'wget https://releases.hashicorp.com/terraform/1.1.6/terraform_1.1.6_linux_amd64.zip'
-        sh 'unzip terraform_1.1.6_linux_amd64.zip'
+        sh 'wget https://releases.hashicorp.com/terraform/1.1.9/terraform_1.1.9_linux_amd64.zip'
+        sh 'unzip terraform_1.1.9_linux_amd64.zip'
       }
 
         withCredentials([usernamePassword(credentialsId: 'vRA_System_Admin',

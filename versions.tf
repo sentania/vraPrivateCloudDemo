@@ -1,10 +1,4 @@
-terraform {
-  required_providers {
-    vra = {
-      source = "vmware/vra"
-      version = ">= 0.5.0"
-    }
-   
-  }
+terraform {  }
+
   required_version = ">= 1.0.4"
 }
