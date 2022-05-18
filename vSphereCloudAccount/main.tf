@@ -9,6 +9,14 @@ data vra_region_to_enable "this" {
   name     = each.value
 }
 
+data "vra_region_enumeration_vsphere" "this" {
+  username                = var.username
+  password                = var.password
+  hostname                = var.hostname
+  dcid                    = var.datacollector != "" ? data.vra_data_collector.dc[0].id : "" // Required for vRA Cloud, Optional for vRA 8.X
+  accept_self_signed_cert = true
+}
+
 resource vra_cloud_account_vsphere "this" {
   name                    = replace(var.name, " ", "_")
   description             = var.description
@@ -16,7 +24,7 @@ resource vra_cloud_account_vsphere "this" {
   password                = var.password
   hostname                = var.hostname
   dcid                    = var.datacollector  != "" ? data.vra_data_collector.this[0].id : var.datacollector
-  regions                 = [for v in data.vra_region_to_enable.this: format("Datacenter:%s", v.id)]
+  regions                      = data.vra_region_enumeration_vsphere.this.regions
   associated_cloud_account_ids = var.nsxManager != "" ? [var.nsxManager] : []
   accept_self_signed_cert = true
   dynamic tags {
