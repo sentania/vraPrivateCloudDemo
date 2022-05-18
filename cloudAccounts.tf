@@ -1,4 +1,25 @@
 ####ON PREM vSphere Infrastructure
+module ca_vcenter {
+  source = "./vSphereCloudAccount"
+  name                = "vcenter"
+  datacollector       = ""
+  hostname            = "vcenter.int.sentania.net"
+  password            = var.serviceAccountPassword
+  username            = var.serviceAccountUserName
+  enabled_datacenters = ["sboweLab"]
+  #nsxManager          = module.ca_labcompnsx01.cloud_account.id
+  capability_tags     = [
+    {
+      key   = "cloud",
+      value = "vsphere"
+    },
+    {
+      key   = "availabilityZone",
+      value = "az1"
+    }
+  ]
+}
+
 
 module ca_labcomp01 {
   source = "./vSphereCloudAccount"
