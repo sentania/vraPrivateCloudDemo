@@ -81,20 +81,3 @@ module ca_labcomp02 {
 
 
 ###END vSphere
-
-#AWS Subscription
-module ca_vmwareaws{
-  source = "./awsCloudAccount"
-  name = "VMware AWS"
-  description = "AWS Subscription provided by VMware"
-  access_key = var.awsAccessKey
-  secret_key = var.awsSecretKey
-  enabled_regions = ["us-east-1", "us-east-2"]
-  capability_tags = [
-    {
-      key   = "cloud",
-      value = "aws"
-    }
-  ]
-}
-#END AWS Subscription
