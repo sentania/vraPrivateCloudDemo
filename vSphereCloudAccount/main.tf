@@ -4,11 +4,6 @@ data vra_data_collector "this" {
   name = var.datacollector
 }
 
-data vra_region_to_enable "this" {
-  for_each = toset(var.enabled_datacenters)
-  name     = each.value
-}
-
 data "vra_region_enumeration_vsphere" "this" {
   username                = var.username
   password                = var.password
