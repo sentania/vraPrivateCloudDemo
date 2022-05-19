@@ -28,3 +28,15 @@ variable awsSecretKey {
 variable awsAccessKey {
 
 }
+
+variable "azure_subscription_id" {
+}
+
+variable "azure_tenant_id" {
+}
+
+variable "azure_application_id" {
+}
+
+variable "azure_application_key" {
+}

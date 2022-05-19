@@ -13,9 +13,3 @@ resource "vra_cloud_account_aws" "this" {
     }
   }
 }
-
-data "vra_cloud_account_aws" "this" {
-  name = replace(var.name, " ", "_")
-
-  depends_on = [vra_cloud_account_aws.this]
-}
