@@ -100,3 +100,23 @@ module ca_vmwareaws{
   ]
 }
 #END AWS Subscription
+
+#Azure Subscription
+module ca_vmwareaws{
+  source = "./azureCloudAccount"
+  name = "VMware Azure"
+  description = "Azure Subscription provided by VMware"
+  subscription_id = var.azure_subscription_id
+  tenant_id = var.azure_tenant_id
+  application_id = var.azure_application_id
+  application_key = var.azure_application_key
+
+  enabled_regions = ["northcentralus"]
+  capability_tags = [
+    {
+      key   = "cloud",
+      value = "azure"
+    }
+  ]
+}
+#END Azure Subscription
