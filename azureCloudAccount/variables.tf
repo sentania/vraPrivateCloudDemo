@@ -1,8 +1,15 @@
-variable "access_key" {
+variable "subscription_id" {
 }
 
-variable "secret_key" {
+variable "tenant_id" {
 }
+
+variable "application_id" {
+}
+
+variable "application_key" {
+}
+
 variable description {
   type = string
   default = ""
