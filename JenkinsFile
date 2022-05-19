@@ -20,7 +20,7 @@ deleteDir()
         }
         withCredentials([
           usernamePassword(credentialsId: 'PrivateCloudServiceID',usernameVariable: 'vRAUserName', passwordVariable: 'vRAPassword'),
-          usernamePassword(credentialsId: 'PrivateCloudServiceID',usernameVariable: 'vRAUserName', passwordVariable: 'vRAPassword'),
+          usernamePassword(credentialsId: 'awsAccessKey', usernameVariable: 'access_key', passwordVariable: 'secret_key'),
           usernamePassword(credentialsId: 'AzureSubAndTenant',usernameVariable: 'AzureSubID', passwordVariable: 'AzureTenantID'),
           usernamePassword(credentialsId: 'azzureappid', usernameVariable: 'AzureAppID', passwordVariable: 'AzureAppSecret')]) {
           stage("Execute Terraform Deployment") {  
