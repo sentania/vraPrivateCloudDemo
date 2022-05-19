@@ -1,7 +1,6 @@
-
-data vra_data_collector "this" {
+ data "vra_data_collector" "dc" {
   count = var.datacollector != "" ? 1 : 0
-  name = var.datacollector
+  name  = var.datacollector
 }
 
 data "vra_region_enumeration_vsphere" "this" {
@@ -11,6 +10,7 @@ data "vra_region_enumeration_vsphere" "this" {
   dcid                    = var.datacollector != "" ? data.vra_data_collector.dc[0].id : "" // Required for vRA Cloud, Optional for vRA 8.X
   accept_self_signed_cert = true
 }
+
 
 resource vra_cloud_account_vsphere "this" {
   name                    = replace(var.name, " ", "_")
