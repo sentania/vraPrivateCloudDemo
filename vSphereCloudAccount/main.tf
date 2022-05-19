@@ -18,7 +18,7 @@ resource vra_cloud_account_vsphere "this" {
   username                = var.username
   password                = var.password
   hostname                = var.hostname
-  dcid                    = var.datacollector  != "" ? data.vra_data_collector.this[0].id : var.datacollector
+  dcid                    = var.datacollector  != "" ? data.vra_data_collector.dc[0].id : var.datacollector
   regions                      = data.vra_region_enumeration_vsphere.this.regions
   associated_cloud_account_ids = var.nsxManager != "" ? [var.nsxManager] : []
   accept_self_signed_cert = true
