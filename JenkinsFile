@@ -25,11 +25,7 @@ deleteDir()
           usernamePassword(credentialsId: 'azzureappid', usernameVariable: 'AzureAppID', passwordVariable: 'AzureAppSecret')]) {
           stage("Execute Terraform Deployment") {  
             sh './terraform init'
-            sh "./terraform plan -var refresh_token=${refresh_token} -var azure_subscription_id=$AzureSubID -var azure_tenant_id=$AzureTenantID \
-            -var azure_application_id=$AzureAppID -var azure_application_key=$AzureAppSecret -var nsx_url=lab-comp-nsx01.lab.sentania.net \
-            -var vra_url=https://vra.lab.sentania.net -var serviceAccountUserName=$vRAUserName -var serviceAccountPassword=$vRAPassword \
-            -var awsAccessKey=$access_key -var awsSecretKey=$secret_key -state=/var/lib/jenkins/terraform/vRAPrivateCloud.tfstate \
-            out=deploymentPlan"
+            sh "./terraform plan -var refresh_token=${refresh_token} -var azure_subscription_id=$AzureSubID -var azure_tenant_id=$AzureTenantID -var azure_application_id=$AzureAppID -var azure_application_key=$AzureAppSecret -var nsx_url=lab-comp-nsx01.lab.sentania.net -var vra_url=https://vra.lab.sentania.net -var serviceAccountUserName=$vRAUserName -var serviceAccountPassword=$vRAPassword -var awsAccessKey=$access_key -var awsSecretKey=$secret_key -state=/var/lib/jenkins/terraform/vRAPrivateCloud.tfstate -out=deploymentPlan"
             sh './terraform apply -state="/var/lib/jenkins/terraform/vRAPrivateCloud.tfstate" -input=false deploymentPlan'
           }
         }
