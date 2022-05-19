@@ -3,6 +3,7 @@ module ca_vsphere_vcenter {
   source = "./vSphereCloudAccount"
   name                = "vcenter"
   datacollector       = ""
+  description         = "Physical Hosts"
   hostname            = "vcenter.int.sentania.net"
   password            = var.serviceAccountPassword
   username            = var.serviceAccountUserName
@@ -26,6 +27,7 @@ module ca_vsphere_labcomp01 {
   name                = "lab-comp01"
   datacollector       = ""
   hostname            = "lab-comp01-vcenter.int.sentania.net"
+  description         = "Virtual Site A"
   password            = var.serviceAccountPassword
   username            = var.serviceAccountUserName
   enabled_datacenters = ["lab-comp01"]
@@ -47,6 +49,7 @@ module ca_vsphere_labcomp02 {
   name                = "lab-comp02"
   datacollector       = ""
   hostname            = "lab-comp02-vcenter.int.sentania.net"
+  description         = "Virtual Site B"
   password            = var.serviceAccountPassword
   username            = var.serviceAccountUserName
   enabled_datacenters = ["lab-comp02"]
