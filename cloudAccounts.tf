@@ -1,5 +1,5 @@
 ####ON PREM vSphere Infrastructure
-module ca_vcenter {
+module ca_vsphere_vcenter {
   source = "./vSphereCloudAccount"
   name                = "vcenter"
   datacollector       = ""
@@ -21,7 +21,7 @@ module ca_vcenter {
 }
 
 
-module ca_labcomp01 {
+module ca_vsphere_labcomp01 {
   source = "./vSphereCloudAccount"
   name                = "lab-comp01"
   datacollector       = ""
@@ -42,7 +42,7 @@ module ca_labcomp01 {
   ]
 }
 
-module ca_labcomp02 {
+module ca_vsphere_labcomp02 {
   source = "./vSphereCloudAccount"
   name                = "lab-comp02"
   datacollector       = ""
@@ -85,7 +85,7 @@ module ca_labcomp02 {
 
 
 #AWS Subscription
-module ca_vmwareaws{
+module ca_vmware_aws{
   source = "./awsCloudAccount"
   name = "VMware AWS"
   description = "AWS Subscription provided by VMware"
@@ -102,7 +102,7 @@ module ca_vmwareaws{
 #END AWS Subscription
 
 #Azure Subscription
-module ca_vmwareaws{
+module ca_vmware_azure{
   source = "./azureCloudAccount"
   name = "VMware Azure"
   description = "Azure Subscription provided by VMware"
