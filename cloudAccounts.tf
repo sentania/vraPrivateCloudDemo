@@ -62,7 +62,9 @@ module ca_labcomp02 {
     }
   ]
 }
+###END vSphere
 
+###NSX Manager
 #module ca_labcompnsx01 {
 #  source = "./nsxCloudAccount"
 #  name                = "labcompnsx01"
@@ -79,5 +81,22 @@ module ca_labcomp02 {
 #  ]
 #}
 
+##END NSX Manager
 
-###END vSphere
+
+#AWS Subscription
+module ca_vmwareaws{
+  source = "./awsCloudAccount"
+  name = "VMware AWS"
+  description = "AWS Subscription provided by VMware"
+  access_key = var.awsAccessKey
+  secret_key = var.awsSecretKey
+  enabled_regions = ["us-east-1", "us-east-2"]
+  capability_tags = [
+    {
+      key   = "cloud",
+      value = "aws"
+    }
+  ]
+}
+#END AWS Subscription
