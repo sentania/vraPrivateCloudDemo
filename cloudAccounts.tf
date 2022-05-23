@@ -1,27 +1,4 @@
 ####ON PREM vSphere Infrastructure
-module ca_vsphere_vcenter {
-  source = "./vSphereCloudAccount"
-  name                = "vcenter"
-  datacollector       = ""
-  description         = "Physical Hosts"
-  hostname            = "vcenter.int.sentania.net"
-  password            = var.serviceAccountPassword
-  username            = var.serviceAccountUserName
-  enabled_datacenters = ["sboweLab"]
-  #nsxManager          = module.ca_labcompnsx01.cloud_account.id
-  capability_tags     = [
-    {
-      key   = "cloud",
-      value = "vsphere"
-    },
-    {
-      key   = "availabilityZone",
-      value = "az1"
-    }
-  ]
-}
-
-
 module ca_vsphere_labcomp01 {
   source = "./vSphereCloudAccount"
   name                = "lab-comp01"
@@ -68,21 +45,21 @@ module ca_vsphere_labcomp02 {
 ###END vSphere
 
 ###NSX Manager
-#module ca_labcompnsx01 {
-#  source = "./nsxCloudAccount"
-#  name                = "labcompnsx01"
-#  datacollector       = ""
-#  hostname            = "lab-comp-nsx01.lab.sentania.net"
-#  password            = var.serviceAccountPassword
-#  username            = var.serviceAccountUserName
-#  manager_mode        = true  #manager mode
-#  capability_tags     = [
-#    {
-#      key   = "cloud",
-#      value = "vsphere"
-#    }
-#  ]
-#}
+module ca_labcompnsx01 {
+  source = "./nsxCloudAccount"
+  name                = "labcompnsx01"
+  datacollector       = ""
+  hostname            = "lab-comp-nsx01.lab.sentania.net"
+  password            = var.serviceAccountPassword
+  username            = var.serviceAccountUserName
+  manager_mode        = false  #manager mode
+  capability_tags     = [
+    {
+      key   = "cloud",
+      value = "vsphere"
+    }
+  ]
+}
 
 ##END NSX Manager
 
