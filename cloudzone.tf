@@ -14,7 +14,7 @@ module cz_labcomp01 {
   source        = "./cloudZone"
   name          = "lab-comp01-cz"
   description   = "Lab Comp01 Datacenter"
-  region        =  local.ca_vsphere_labcomp01_region
+  region        =  local.ca_vsphere_labcomp01a_region
   capability_tags     = [
     {
       key   = "cloud",
@@ -27,7 +27,7 @@ module cz_labcomp01b {
   source        = "./cloudZone"
   name          = "lab-comp01b-cz"
   description   = "Lab Comp01b Datacenter"
-  region        =  local.ca_vsphere_labcomp01_region
+  region        =  local.ca_vsphere_labcomp01b_region
   capability_tags     = [
     {
       key   = "cloud",
