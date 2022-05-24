@@ -12,7 +12,7 @@ locals {
 
 module cz_labcomp01 {
   source        = "./cloudZone"
-  name          = "lab-comp01a-cz"
+  name          = "lab-comp01-cz"
   description   = "Lab Comp01 Datacenter"
   region        =  local.ca_vsphere_labcomp01_region
   capability_tags     = [
@@ -23,7 +23,7 @@ module cz_labcomp01 {
   ]
 }
 
-module cz_labcomp01 {
+module cz_labcomp01b {
   source        = "./cloudZone"
   name          = "lab-comp01b-cz"
   description   = "Lab Comp01b Datacenter"
