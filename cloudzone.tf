@@ -4,11 +4,17 @@ data "vra_region" "ca_vsphere_labcomp01"{
     region = each.value.region
 }
 
-module cz_labcomp01a {
+
+output "labcomp01a-dc"
+{
+    value = data.vra_region.ca_vsphere_labcomp01
+}
+
+module cz_labcomp01 {
   source        = "./cloudZone"
-  name          = lookup(data.vra_region.ca_vsphere_labcomp01.name, "lab-comp01")
+  name          = "lab-comp01-cz"
   description   = "Lab Comp01 Datacenter"
-  region        =  lookup(data.vra_region.ca_vsphere_labcomp01.id, "lab-comp01")
+  region        =  data.vra_region.ca_vsphere_labcomp01["lab-comp01"].region
   capability_tags     = [
     {
       key   = "cloud",
