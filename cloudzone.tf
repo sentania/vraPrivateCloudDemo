@@ -5,14 +5,14 @@ data "vra_region" "ca_vsphere_labcomp01"{
 }
 
 
-local "labcomp01a-dc" {
+locals "labcomp01a-dc" {
     value = matchkeys(values(data.vra_region.ca_vsphere_labcomp01), keys(data.vra_region.ca_vsphere_labcomp01.name),"lab-comp01")
 }
 module cz_labcomp01 {
   source        = "./cloudZone"
   name          = "lab-comp01-cz"
   description   = "Lab Comp01 Datacenter"
-  region        =  local.labcomp01a-dc.region
+  region        =  locals.labcomp01a-dc.region
   capability_tags     = [
     {
       key   = "cloud",
