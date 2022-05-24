@@ -1,18 +1,14 @@
 data "vra_region" "ca_vsphere_labcomp01"{
-    region = module.ca_vsphere_labcomp01.enabled_regions[0].region
-    cloud_account_id = module.ca_vsphere_labcomp01.cloud_account.id
-}
-data "vra_region" "ca_vsphere_labcomp01a"{
     for_each = { for dc in module.ca_vsphere_labcomp01.enabled_regions: dc.region => dc }
     cloud_account_id = module.ca_vsphere_labcomp01.cloud_account.id
     region = each.value.region
 }
 
-module cz_labcomp01 {
+module cz_labcomp01a {
   source        = "./cloudZone"
-  name          = "lab-comp01-cz"
+  name          = lookup(data.vra_region.ca_vsphere_labcomp01.name, "lab-comp01")
   description   = "Lab Comp01 Datacenter"
-  region        =  data.vra_region.ca_vsphere_labcomp01.id
+  region        =  lookup(data.vra_region.ca_vsphere_labcomp01.id, "lab-comp01")
   capability_tags     = [
     {
       key   = "cloud",
@@ -20,3 +16,4 @@ module cz_labcomp01 {
     }
   ]
 }
+
