@@ -3,7 +3,7 @@ data "vra_region" "ca_vsphere_labcomp01"{
     cloud_account_id = module.ca_vsphere_labcomp01.cloud_account.id
 }
 data "vra_region" "ca_vsphere_labcomp01a"{
-    for_each = { for dc in module.ca_vsphere_labcomp01.enabled_regions: dc.id => dc }
+    for_each = { for dc in module.ca_vsphere_labcomp01.enabled_regions: dc.region => dc }
     cloud_account_id = module.ca_vsphere_labcomp01.cloud_account.id
     region = each.value.region
 }
