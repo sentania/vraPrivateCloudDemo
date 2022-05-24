@@ -5,8 +5,7 @@ data "vra_region" "ca_vsphere_labcomp01"{
 }
 
 
-output "labcomp01a-dc"
-{
+output "labcomp01a-dc" {
     value = data.vra_region.ca_vsphere_labcomp01
 }
 
