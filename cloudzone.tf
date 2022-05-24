@@ -6,7 +6,7 @@ data "vra_region" "ca_vsphere_labcomp01"{
 
 
 locals {
-    ca_vsphere_labcomp01_region = data.vra_region.ca_vsphere_labcomp01["lab-comp01"].region
+    ca_vsphere_labcomp01_region = data.vra_region.ca_vsphere_labcomp01["lab-comp01"].id
 }
 
 module cz_labcomp01 {
