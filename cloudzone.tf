@@ -7,7 +7,7 @@ data "vra_region" "ca_vsphere_labcomp01"{
 
 local "labcomp01a-dc" {
     value = matchkeys(values(data.vra_region.ca_vsphere_labcomp01), keys(data.vra_region.ca_vsphere_labcomp01.name),"lab-comp01")
-
+}
 module cz_labcomp01 {
   source        = "./cloudZone"
   name          = "lab-comp01-cz"
