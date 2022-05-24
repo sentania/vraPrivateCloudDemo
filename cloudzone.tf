@@ -6,12 +6,13 @@ data "vra_region" "ca_vsphere_labcomp01"{
 
 
 locals {
-    ca_vsphere_labcomp01_region = data.vra_region.ca_vsphere_labcomp01["lab-comp01"].id
+    ca_vsphere_labcomp01a_region = data.vra_region.ca_vsphere_labcomp01["lab-comp01"].id
+    ca_vsphere_labcomp01b_region = data.vra_region.ca_vsphere_labcomp01["lab-comp01b"].id
 }
 
 module cz_labcomp01 {
   source        = "./cloudZone"
-  name          = "lab-comp01-cz"
+  name          = "lab-comp01a-cz"
   description   = "Lab Comp01 Datacenter"
   region        =  local.ca_vsphere_labcomp01_region
   capability_tags     = [
@@ -22,3 +23,15 @@ module cz_labcomp01 {
   ]
 }
 
+module cz_labcomp01 {
+  source        = "./cloudZone"
+  name          = "lab-comp01b-cz"
+  description   = "Lab Comp01b Datacenter"
+  region        =  local.ca_vsphere_labcomp01_region
+  capability_tags     = [
+    {
+      key   = "cloud",
+      value = "vsphere"
+    }
+  ]
+}
