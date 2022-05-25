@@ -12,8 +12,8 @@ data "vra_region" "flavor_region_labcomp02"{
 
 
 locals {
-    flv_vsphere_labcomp01_region = data.vra_region.ca_vsphere_labcomp01["lab-comp01"].id
-    flv_vsphere_labcomp02_region = data.vra_region.ca_vsphere_labcomp02["lab-comp02"].id
+    flv_vsphere_labcomp01_region = data.vra_region.flavor_region_labcomp01["lab-comp01"].id
+    flv_vsphere_labcomp02_region = data.vra_region.flavor_region_labcomp01["lab-comp02"].id
 }
 
 

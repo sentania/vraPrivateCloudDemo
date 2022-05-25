@@ -12,8 +12,8 @@ data "vra_region" "image_region_labcomp02"{
 
 
 locals {
-    img_vsphere_labcomp01_region = data.vra_region.ca_vsphere_labcomp01["lab-comp01"].id
-    img_vsphere_labcomp02_region = data.vra_region.ca_vsphere_labcomp02["lab-comp02"].id
+    img_vsphere_labcomp01_region = data.vra_region.image_region_labcomp01["lab-comp01"].id
+    img_vsphere_labcomp02_region = data.vra_region.image_region_labcomp02["lab-comp02"].id
 }
 
 module img_labcomp01 {
@@ -29,7 +29,7 @@ module img_labcomp01 {
     }
   ]    
     region = local.img_vsphere_labcomp01_region
-    cloud_account = module.ca_labcomp01.cloud_account.id
+    cloud_account = module.ca_vsphere_labcomp01.cloud_account.id
 }
 
 module img_labcomp02 {
@@ -46,5 +46,5 @@ module img_labcomp02 {
  ]
     
     region = local.img_vsphere_labcomp02_region
-    cloud_account = module.ca_labcomp02.cloud_account.id
+    cloud_account = module.ca_vsphere_labcomp02.cloud_account.id
 }
