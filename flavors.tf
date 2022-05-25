@@ -1,4 +1,3 @@
-
 data "vra_region" "flavor_region_labcomp01"{
     for_each = { for dc in module.ca_vsphere_labcomp01.enabled_regions: dc.name => dc }
     cloud_account_id = module.ca_vsphere_labcomp01.cloud_account.id
