@@ -37,7 +37,7 @@ module flv_labcomp01 {
         }
     ]
     region_id = local.flv_vsphere_labcomp01_region
-    cloud_account = module.ca_vsphere_labcomp01.cloud_account.id
+
 }
 
 
@@ -61,5 +61,4 @@ module flv_labcomp02 {
         }
     ]
     region_id = local.flv_vsphere_labcomp02_region
-    cloud_account = module.ca_vsphere_labcomp02.cloud_account.id
 }
