@@ -39,7 +39,7 @@ module img_labcomp02 {
     image_mappings     = [
     {
       image_name = "centos8",
-      template_name = "lab-comp01 / centos8", //when referencing a content library you must preceed the template name with it
+      template_name = "lab-comp02 / centos8", //when referencing a content library you must preceed the template name with it
       image_description = "CentOS 8 Template",
       cloud_config = ""
     }
