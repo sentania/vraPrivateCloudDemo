@@ -6,7 +6,7 @@ data "vra_image" "this" {
 resource "vra_image_profile" "this" {
   name        = var.image_name
   description = var.image_description
-  region_id   = var.region.id
+  region_id   = var.region
 
   dynamic image_mapping {
     for_each = var.image_mappings
