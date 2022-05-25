@@ -7,7 +7,7 @@ module ca_vsphere_labcomp01 {
   description         = "Virtual Site A"
   password            = var.serviceAccountPassword
   username            = var.serviceAccountUserName
-  enabled_datacenters = ["lab-comp01", "lab-comp01b"]
+  enabled_datacenters = ["lab-comp01"]
   nsxManager          = module.ca_labcompnsx01.cloud_account.id
   capability_tags     = [
     {
