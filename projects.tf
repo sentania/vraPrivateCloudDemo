@@ -11,10 +11,5 @@ module Private_Cloud_Sandbox {
     administrators   = ["vradmins@int.sentania.net","labadmins@int.sentania.net"]
     users            = ["terraform@int.sentania.net"]
     basename         =  "vra$${####}"
-    networkConstraints     = [
-    {
-      expression   = "environment:sandbox",
-      mandatory = "true"
-    }
-    ]
+
 }

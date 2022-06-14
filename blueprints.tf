@@ -5,7 +5,7 @@ module Private_Cloud_Sandbox_Simple_blueprint {
     content = <<-EOT
     formatVersion: 1
     inputs: {}
-    version: 1.1.2
+    version: 1.1.3
     resources:
       Cloud_Machine_1:
         type: Cloud.Machine
@@ -24,7 +24,5 @@ module Private_Cloud_Sandbox_Simple_blueprint {
         type: Cloud.NSX.Network
         properties:
           networkType: routed
-          constraints:
-            - tag: "environment:sandbox"
   EOT
 }
