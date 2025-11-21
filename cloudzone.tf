@@ -1,21 +1,38 @@
-###cloud zones are create dynamically for every enabled cloud account region.
+locals {
+  cloud_account_regions = flatten([
+    for ca_key, ca in module.cloud_accounts_vsphere : [
+      for r in ca.cloud_account.enabled_regions : {
+        cloud_account_name = ca_key
+        cloud_account_id   = ca.cloud_account.id
+        region_name        = r.name
+        region_id          = r.external_region_id
+      }
+    ]
+  ])
+}
+data "vra_region" "all" {
+  depends_on = [ module.cloud_accounts_vsphere]
+  for_each = {
+    for item in local.cloud_account_regions :
+    "${item.region_name}" => item
+  }
 
-data "vra_region" "ca_vsphere_wld02"{
-    depends_on = [ module.ca_vsphere_wld02 ]   # ← THIS IS ENOUGH
-    for_each = { for dc in module.ca_vsphere_wld02.cloud_account.enabled_regions: dc.name => dc }
-    cloud_account_id = module.ca_vsphere_wld02.cloud_account.id
-    region = each.value.external_region_id
+  cloud_account_id = each.value.cloud_account_id
+  region           = each.value.region_id
 }
 
-module cz_vsphere_wld02 {
-  source        = "./cloudZone"
-  for_each = data.vra_region.ca_vsphere_wld02
-  name          = "${each.key}-cz"
-  description   = "Cloud Zone for ${each.key}"
-  region        =  each.value.id
-  capability_tags     = [
+module "cloud_zones" {
+  source = "./cloudZone"
+
+  for_each = data.vra_region.all
+
+  name          = "${each.value.name}-cz"
+  description   = "Cloud zone for ${each.value.name}"
+  region        = each.value.id
+
+  capability_tags = [
     {
-      key   = "cloud",
+      key   = "cloud"
       value = "vsphere"
     }
   ]
