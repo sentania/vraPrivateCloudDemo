@@ -10,7 +10,6 @@ resource "vra_cloud_account_nsxt" "this" {
   password    = var.password
   hostname    = var.hostname
   dc_id       = var.datacollector != "" ? data.vra_data_collector.dc[0].id : ""
-  manager_mode = var.manager_mode
   accept_self_signed_cert = true
   dynamic tags {
     for_each = var.capability_tags

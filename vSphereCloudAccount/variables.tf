@@ -8,11 +8,6 @@ variable capability_tags {
   default = []
 }
 
-variable datacollector {
-  type = string
-  default = ""
-}
-
 variable description {
   type = string
   default = ""

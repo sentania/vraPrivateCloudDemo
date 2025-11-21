@@ -26,8 +26,3 @@ variable description {
   type = string
   default = ""
 }
-
-variable manager_mode {
-   type = bool
-   default = false
-}

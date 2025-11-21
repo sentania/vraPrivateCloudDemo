@@ -1,6 +1,6 @@
 provider "vra" {
-  url           = var.vra_url
-  refresh_token = var.refresh_token
-  insecure      = var.insecure
+  url           = var.vcfa_url
+  organization  = "vcf-lab-vm-apps"
+  refresh_token = var.vcfa_refresh_token
+  insecure      = true
 }
-
