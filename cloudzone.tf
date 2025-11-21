@@ -1,4 +1,7 @@
+###cloud zones are create dynamically for every enabled cloud account region.
+
 data "vra_region" "ca_vsphere_wld02"{
+    depends_on = [ module.ca_vsphere_wld02 ]   # ← THIS IS ENOUGH
     for_each = { for dc in module.ca_vsphere_wld02.cloud_account.enabled_regions: dc.name => dc }
     cloud_account_id = module.ca_vsphere_wld02.cloud_account.id
     region = each.value.external_region_id
