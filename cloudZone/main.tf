@@ -6,7 +6,7 @@ resource "vra_zone" "this" {
   #dynamic compute_ids {
   #   var.compute_ids
   #  }
-  compute_ids      = var.compute_ids
+  
   placement_policy = var.placement_policy
   dynamic tags_to_match {
     for_each = var.tags_to_match

@@ -10,20 +10,10 @@ locals {
     ]
   ])
 }
-data "vra_region" "all" {
-  depends_on = [ module.cloud_accounts_vsphere]
-  for_each = {
-    for item in local.cloud_account_regions :
-    "${item.region_name}" => item
-  }
 
-  cloud_account_id = each.value.cloud_account_id
-  region           = each.value.region_id
-}
 
 module "cloud_zones" {
   source = "./cloudZone"
-
   for_each = data.vra_region.all
 
   name          = "${each.value.name}-cz"
@@ -37,3 +27,4 @@ module "cloud_zones" {
     }
   ]
 }
+
