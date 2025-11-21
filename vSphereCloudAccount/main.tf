@@ -15,6 +15,7 @@ locals {
 }
 
 resource vra_cloud_account_vsphere "this" {
+
   name                    = replace(var.name, " ", "_")
   description             = var.description
   username                = var.username

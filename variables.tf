@@ -21,26 +21,10 @@ variable serviceAccountPassword {
   default = "8UElkNxUVY4Ag4KVlHDV"
 }
 
-variable awsSecretKey {
-  default = "notused"
+variable nsx_accounts {
+
 }
 
-variable awsAccessKey {
-default = "notused"
-}
-
-variable "azure_subscription_id" {
-  default = "notused"
-}
-
-variable "azure_tenant_id" {
-  default = "notused"
-}
-
-variable "azure_application_id" {
-  default = "notused"
-}
-
-variable "azure_application_key" {
-  default = "notused"
+variable vsphere_accounts {
+  
 }
