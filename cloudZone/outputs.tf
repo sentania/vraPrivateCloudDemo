@@ -5,3 +5,4 @@ output cloud_zone {
     "region_id" = vra_zone.this.region_id
   }
 }
+

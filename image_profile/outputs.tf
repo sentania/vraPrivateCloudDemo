@@ -4,3 +4,4 @@ output image_profile {
     "id"   = vra_image_profile.this.id
   }
 }
+
