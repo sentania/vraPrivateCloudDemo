@@ -5,6 +5,20 @@ provider "vra" {
   insecure      = true
 }
 
+locals {
+  cloud_account_regions = flatten([
+    for ca_key, ca in module.cloud_accounts_vsphere : [
+      for r in ca.cloud_account.enabled_regions : {
+        cloud_account_name = ca_key
+        cloud_account_id   = ca.cloud_account.id
+        region_name        = r.name
+        region_id          = r.external_region_id
+        image_mappings     = var.vsphere_accounts[ca_key].image_mappings
+      }
+    ]
+  ])
+}
+
 data "vra_region" "all" {
   depends_on = [ module.cloud_accounts_vsphere]
   for_each = {

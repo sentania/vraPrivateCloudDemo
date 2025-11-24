@@ -8,7 +8,10 @@ variable "image_description" {
 variable "cloud_account" {
 }
 variable "image_mappings" {
-  type        = list(map(string))
-  description = "Image mappings for a region"
+  type = list(object({
+    image_name        = string
+    template_name     = string
+    cloud_config      = string
+  }))
   default = []
 }

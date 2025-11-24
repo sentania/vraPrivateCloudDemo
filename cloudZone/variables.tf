@@ -17,7 +17,7 @@ variable "compute_ids" {
 
 variable folder {
   default = ""
-  description = "The folder relative path to the datacenter where resources are deployed to (only applicable for vSphere cloud zones" 
+  description = "The folder relative path to the datacenter where resources are deployed to (only applicable for vSphere cloud zones)" 
 }
 
 variable "region" {

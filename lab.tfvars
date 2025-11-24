@@ -13,7 +13,7 @@ nsx_accounts = {
 
 vsphere_accounts = {
   vcf-lab-wld02 = {
-    name                = "vcf-lab-vcenter-wld02"
+    name                = "vcf-lab-wld02"
     hostname            = "vcf-lab-vcenter-wld02.int.sentania.net"
     description         = "vcf-lab-wld02-DC"
     enabled_datacenters = ["vcf-lab-wld02-dc01", "vcf-lab-wld02-dc02"]
@@ -27,6 +27,18 @@ vsphere_accounts = {
         key   = "availabilityZone",
         value = "az1"
         }
+    ]
+    image_mappings     = [
+      {
+        image_name = "ubuntu22",
+        template_name = "lab-vcf-wld02 / ubuntu22", //when referencing a content library you must preceed the template name with it
+        cloud_config = ""
+      },
+      {
+        image_name = "ubuntu24",
+        template_name = "lab-vcf-wld02 / ubuntu24", //when referencing a content library you must preceed the template name with it
+        cloud_config = ""
+      }
     ]
     }
 }
