@@ -3,6 +3,7 @@ provider "vra" {
   organization  = "vcf-lab-vm-apps"
   refresh_token = var.vcfa_refresh_token
   insecure      = true
+  api_timeout   = 120
 }
 
 locals {

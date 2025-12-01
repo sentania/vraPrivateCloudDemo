@@ -6,10 +6,9 @@ module "image_mappings" {
     "${r.region_name}-image_mapping" => r
   }
 
-  image_name        = "${each.value.region_name}-mapping"
-  image_description = "Lab Image Profile managed by TF"
-  image_mappings = each.value.image_mappings
-
-  region        = each.value.region_id
-  cloud_account = each.value.cloud_account_id
+  image_profile_name  = "${each.value.region_name}-mapping"
+  image_description   = "Lab Image Profile managed by TF"
+  image_mappings      = each.value.image_mappings
+  region              = each.value.region_id
+  cloud_account_id    = each.value.cloud_account_id
 }

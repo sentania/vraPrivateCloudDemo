@@ -1,11 +1,11 @@
 variable "region" {
 }
 
-variable "image_name" {
+variable "image_profile_name" {
 }
 variable "image_description" {
 }
-variable "cloud_account" {
+variable "cloud_account_id" {
 }
 variable "image_mappings" {
   type = list(object({
