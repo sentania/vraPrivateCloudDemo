@@ -1,5 +1,6 @@
 module flavor_mappings {
     source           = "./flavor_profile"
+    depends_on = [time_sleep.wait_cloud_account_creation]
     for_each = data.vra_region.all
         name = "${each.value.name}-flv"
         flavor_mappings     = [
