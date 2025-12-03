@@ -44,3 +44,15 @@ vsphere_accounts = {
     ]
   }
 }
+
+projects = {
+  sandboxProject = {
+    name           = "vcf-lab-sandbox"
+    description    = "This is a project created with TF - Do Not Edit"
+    basename       = "vra-sandbox-$${####}"
+    administrators = ["vcf@int.sentania.net", "labadmins@int.sentania.net"]
+  }
+  hrproject = {
+
+  }
+}

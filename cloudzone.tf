@@ -1,5 +1,3 @@
-
-
 module "cloud_zones" {
   source     = "./cloudZone"
   depends_on = [module.cloud_accounts_vsphere]
