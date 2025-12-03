@@ -60,7 +60,7 @@ projects = {
     administrators = ["vcf@int.sentania.net", "labadmins@int.sentania.net"]
     infra_tag      = "hr"
   }
-    hrproject = {
+    finance = {
     name           = "vcf-lab-finance"
     description    = "This is a project created with TF - Do Not Edit"
     basename       = "vra-fnc-$${####}"
