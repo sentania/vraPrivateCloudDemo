@@ -4,8 +4,8 @@ module "projects" {
     for project in var.projects :
     project.name => project
   }
-  project_name   = project.name
-  description    = project.description
-  administrators = project.administrators
-  basename       = project.basename
+  project_name   = each.value.name
+  description    = each.value.description
+  administrators = each.value.administrators
+  basename       = each.value.basename
 }
