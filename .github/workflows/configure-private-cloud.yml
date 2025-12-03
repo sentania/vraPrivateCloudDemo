@@ -1,5 +1,4 @@
-name: Terraform
-
+name: Configure Lab Private Cloud
 on:
   push:
     branches:
@@ -16,7 +15,6 @@ jobs:
     env:
       TF_IN_AUTOMATION: "true"
       TF_INPUT: "false"
-
 
       # vSphere / vRA / VCF environment-specific credentials
       TF_VAR_serviceAccountUserName: ${{ secrets.VCF_SERVICE_USER }}
