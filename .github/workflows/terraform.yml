@@ -40,6 +40,12 @@ jobs:
 
       - name: Terraform Plan
         run: terraform plan -no-color -var-file="envs/lab.tfvars"
+        
+      - name: Upload Plan Artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: terraform-plan
+          path: tfplan
 
       - name: Terraform Apply
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
