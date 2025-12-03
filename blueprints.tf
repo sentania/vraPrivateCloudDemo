@@ -1,3 +1,13 @@
+locals {
+  projects_expanded = {
+    for k, v in var.projects :
+    k => {
+      project_id = module.projects[k].project.id
+      infra_tag  = v.infra_tag
+    }
+  }
+}
+
 module "simpleIACblueprint" {
 
   source = "./blueprint"

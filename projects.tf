@@ -8,10 +8,8 @@ locals {
 module "projects" {
   source     = "./project"
   depends_on = [time_sleep.wait_cloud_account_creation]
-  for_each = {
-    for project in var.projects :
-    project.name => project
-  }
+  for_each = var.projects
+
   project_name   = each.value.name
   description    = each.value.description
   administrators = each.value.administrators
@@ -19,12 +17,3 @@ module "projects" {
   cloud_zone_ids = local.all_cloud_zone_ids
 }
 
-locals {
-  projects_expanded = {
-    for k, v in var.projects :
-    k => {
-      project_id = module.projects[k].project.id
-      infra_tag  = v.infra_tag
-    }
-  }
-}
