@@ -26,28 +26,6 @@ variable "serviceAccountPassword" {
 }
 
 ########################################
-# Backend DB config (PostgreSQL)
-########################################
-
-variable "backend_db_user" {
-  type = string
-}
-
-variable "backend_db_pass" {
-  type      = string
-  sensitive = true
-}
-
-variable "backend_db_host" {
-  type = string
-}
-
-variable "backend_db_name" {
-  type = string
-}
-
-
-########################################
 # NSX Cloud Accounts
 #
 # Structure (map):
