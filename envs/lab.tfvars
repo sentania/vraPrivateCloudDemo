@@ -2,15 +2,15 @@ vcfa_url = "https://vcf-lab-automation.int.sentania.net"
 
 nsx_accounts = {
   nsx-wld02 = {
-    name                = "vcf-lab-nsxmgr-wld02"
-    hostname            = "vcf-lab-nsxmgr-wld02.int.sentania.net"
-    capability_tags     = [
-    {
+    name     = "vcf-lab-nsxmgr-wld02"
+    hostname = "vcf-lab-nsxmgr-wld02.int.sentania.net"
+    capability_tags = [
+      {
         key   = "cloud",
         value = "vsphere"
-    }
-        ] 
-    }
+      }
+    ]
+  }
 }
 
 vsphere_accounts = {
@@ -20,27 +20,27 @@ vsphere_accounts = {
     description         = "vcf-lab-wld02-DC"
     enabled_datacenters = ["vcf-lab-wld02-dc01", "vcf-lab-wld02-dc02"]
     nsxManager          = "vcf-lab-nsxmgr-wld02"
-    capability_tags     = [
-        {
+    capability_tags = [
+      {
         key   = "cloud",
         value = "vsphere"
-        },
-        {
-        key   = "availabilityZone",
-        value = "az1"
-        }
-    ]
-    image_mappings     = [
-      {
-        image_name = "ubuntu22",
-        template_name = "lab-vcf-wld02 / ubuntu22", //when referencing a content library you must preceed the template name with it
-        cloud_config = ""
       },
       {
-        image_name = "ubuntu24",
-        template_name = "lab-vcf-wld02 / ubuntu24", //when referencing a content library you must preceed the template name with it
-        cloud_config = ""
+        key   = "availabilityZone",
+        value = "az1"
       }
     ]
-    }
+    image_mappings = [
+      {
+        image_name    = "ubuntu22",
+        template_name = "lab-vcf-wld02 / ubuntu22", //when referencing a content library you must preceed the template name with it
+        cloud_config  = ""
+      },
+      {
+        image_name    = "ubuntu24",
+        template_name = "lab-vcf-wld02 / ubuntu24", //when referencing a content library you must preceed the template name with it
+        cloud_config  = ""
+      }
+    ]
+  }
 }

@@ -33,12 +33,12 @@ resource "vra_image_profile" "this" {
   description = var.image_description
   region_id   = var.region
 
-  dynamic image_mapping {
+  dynamic "image_mapping" {
     for_each = local.merged_mappings
     content {
-      name              = image_mapping.value["image_name"]
-      image_id          = image_mapping.value["id"]
-      cloud_config      = image_mapping.value["cloud_config"]
+      name         = image_mapping.value["image_name"]
+      image_id     = image_mapping.value["id"]
+      cloud_config = image_mapping.value["cloud_config"]
     }
   }
 }

@@ -1,39 +1,39 @@
-variable name {
-  type    = string
+variable "name" {
+  type = string
 }
 
-variable capability_tags {
+variable "capability_tags" {
   type        = list(map(string))
   description = "Capability tags to be applied to the Cloud Account"
-  default = []
+  default     = []
 }
 
-variable description {
-  type = string
+variable "description" {
+  type    = string
   default = ""
 }
 
-variable hostname {
+variable "hostname" {
   type = string
 }
 
-variable username {
+variable "username" {
   type = string
 }
 
-variable password {
+variable "password" {
   type = string
 }
 
-variable accept_self_signed_cert {
-  type = bool
+variable "accept_self_signed_cert" {
+  type    = bool
   default = true
 }
 
-variable enabled_datacenters {
-  type = list
+variable "enabled_datacenters" {
+  type = list(any)
 }
 
-variable nsxManager {
+variable "nsxManager" {
   default = ""
 }

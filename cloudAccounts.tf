@@ -1,19 +1,19 @@
 ####ON PREM vSphere Infrastructure
-module cloud_accounts_vsphere {
+module "cloud_accounts_vsphere" {
   source = "./vSphereCloudAccount"
-    for_each = {
+  for_each = {
     for ca in var.vsphere_accounts :
     ca.name => ca
   }
-    name                = each.value.name
-    hostname            = each.value.hostname
-    description         = each.value.description
-    password            = var.serviceAccountPassword
-    username            = var.serviceAccountUserName
-    enabled_datacenters = each.value.enabled_datacenters
-    capability_tags     = each.value.capability_tags
-    nsxManager          = module.cloud_accounts_nsxt[each.value.nsxManager].cloud_account.id
-     
+  name                = each.value.name
+  hostname            = each.value.hostname
+  description         = each.value.description
+  password            = var.serviceAccountPassword
+  username            = var.serviceAccountUserName
+  enabled_datacenters = each.value.enabled_datacenters
+  capability_tags     = each.value.capability_tags
+  nsxManager          = module.cloud_accounts_nsxt[each.value.nsxManager].cloud_account.id
+
 
 }
 ###END vSphere

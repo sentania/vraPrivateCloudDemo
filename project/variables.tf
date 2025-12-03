@@ -10,8 +10,8 @@ variable "description" {}
 variable "administrators" {}
 variable "users" {}
 variable "basename" {}
-variable networkConstraints {
+variable "networkConstraints" {
   type        = list(map(string))
   description = "Network constraints for the project"
-  default = []
+  default     = []
 }

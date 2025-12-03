@@ -13,7 +13,7 @@ locals {
         cloud_account_id   = ca.cloud_account.id
         region_name        = r.name
         external_region_id = r.external_region_id
-        region_id                 = r.id
+        region_id          = r.id
         image_mappings     = var.vsphere_accounts[ca_key].image_mappings
       }
     ]

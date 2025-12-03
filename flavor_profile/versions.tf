@@ -1,11 +1,11 @@
 terraform {
   required_providers {
     vra = {
-      source = "vmware/vra"
+      source  = "vmware/vra"
       version = ">= 0.3.3"
     }
     vsphere = {
-      source = "hashicorp/vsphere"
+      source  = "hashicorp/vsphere"
       version = ">= 1.24.2"
     }
   }
