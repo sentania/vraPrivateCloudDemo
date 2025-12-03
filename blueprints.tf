@@ -17,7 +17,7 @@ module "simpleIACblueprint" {
   projectid      = each.value.project_id
   blueprint_name = "Simple IAC Blueprint"
 
-  content = templatefile("${path.module}/blueprints/simple-iac.tmpl.yaml", {
+  content = templatefile("${path.module}/blueprint_templates/simpleIac.tpl.yaml", {
     infra_tag = each.value.infra_tag
   })
 }
