@@ -97,3 +97,13 @@ variable "vsphere_accounts" {
     }))
   }))
 }
+
+variable "projects" {
+  description = "Map of project definitions"
+  type = map(object({
+    name           = string
+    description    = string
+    basename       = string
+    administrators = list(string)
+  }))
+}

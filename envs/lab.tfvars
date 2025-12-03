@@ -53,6 +53,9 @@ projects = {
     administrators = ["vcf@int.sentania.net", "labadmins@int.sentania.net"]
   }
   hrproject = {
-
+    name           = "vcf-lab-human-resources"
+    description    = "This is a project created with TF - Do Not Edit"
+    basename       = "vra-hr-$${####}"
+    administrators = ["vcf@int.sentania.net", "labadmins@int.sentania.net"]
   }
 }
