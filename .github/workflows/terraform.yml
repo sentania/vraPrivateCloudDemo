@@ -39,8 +39,10 @@ jobs:
         run: terraform validate
 
       - name: Terraform Plan
-        run: terraform plan -no-color -var-file="envs/lab.tfvars"
-        
+        run: terraform plan -input=false -no-color \
+                -var-file="envs/lab.tfvars" \
+                -out=tfplan
+
       - name: Upload Plan Artifact
         uses: actions/upload-artifact@v4
         with:
@@ -49,7 +51,7 @@ jobs:
 
       - name: Terraform Apply
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
-        run: terraform apply -auto-approve -var-file="envs/lab.tfvars"
+        run: terraform apply -input=false -auto-approve tfplan
 
       - name: Clean workspace
         run: rm -rf $GITHUB_WORKSPACE/.[!.]*
