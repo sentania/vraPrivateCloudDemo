@@ -1,26 +1,35 @@
 formatVersion: 1
-inputs: {}
+inputs:
+  flavorSize:
+    type: string
+    default: medium
+    enum:
+      - small
+      - medium
+      - large
+  image:
+    type: string
+    default: ubuntu24
+    enum:
+      - ubuntu24
+      - ubuntu22
 resources:
-  Cloud_Machine_1:
+  ubuntuVM:
     type: Cloud.Machine
-    metadata:
-      layoutPosition: [0, 0]
     properties:
       constraints:
-        - tag: application:${infra_tag}
-      image: ubuntu24
-      flavor: medium
+        - tag: "!vcfaCapablity:closed:hard"
+        - tag: "application:${infra_tag}"
+      image: \${input.image}
+      flavor: \${input.flavorSize}
       networks:
-        - network: $${resource.Cloud_Network_1.id}
+        - network: ${resource.Cloud_Network_1.id}
       storage:
         constraints:
           - tag: storageTier:iscsi
-
-  Cloud_Network_1:
-    type: Cloud.NSX.Network
-    metadata:
-      layoutPosition: [1, 0]
+  ubuntuVM-network:
+    type: Cloud.Network
     properties:
       networkType: existing
       constraints:
-        - tag: application:${infra_tag}
+        - tag: "application:${infra_tag}"
