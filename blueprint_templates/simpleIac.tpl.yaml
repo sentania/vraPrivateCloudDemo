@@ -20,8 +20,8 @@ resources:
       constraints:
         - tag: "!vcfaCapablity:closed:hard"
         - tag: "application:${infra_tag}"
-      image: \${input.image}
-      flavor: \${input.flavorSize}
+      image: ${input.image}
+      flavor: ${input.flavorSize}
       networks:
         - network: ${resource.ubuntuVM-network.id}
       storage:
