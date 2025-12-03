@@ -105,5 +105,6 @@ variable "projects" {
     description    = string
     basename       = string
     administrators = list(string)
+    infra_tag      = string
   }))
 }

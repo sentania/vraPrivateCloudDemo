@@ -1,44 +1,23 @@
 locals {
-  all_project_ids = [
-    for _, m in module.projects : m.project.id
-  ]
+  projects_expanded = {
+    for k, v in var.projects :
+    k => {
+      project_id = module.projects[k].project.id
+      infra_tag  = v.infra_tag
+    }
+  }
 }
+
 
 module "simpleIACblueprint" {
   source = "./blueprint"
 
-  for_each = {
-    for project_id in local.all_project_ids :
-    project_id => project_id
-  }
+  for_each = local.projects_expanded
 
-  projectid      = each.value
+  projectid      = each.value.project_id
   blueprint_name = "Simple IAC Blueprint"
 
-  content = <<-EOT
-  formatVersion: 1
-  inputs: {}
-  resources:
-    Cloud_Machine_1:
-      type: Cloud.Machine
-      metadata:
-        layoutPosition: [0, 0]
-      properties:
-        image: ubuntu24
-        flavor: medium
-        networks:
-          - network: $${resource.Cloud_Network_1.id}
-        storage:
-          constraints:
-            - tag: storageTier:iscsi
-
-    Cloud_Network_1:
-      type: Cloud.NSX.Network
-      metadata:
-        layoutPosition: [1, 0]
-      properties:
-        networkType: existing
-        constraints:
-          - tag: application:hr
-  EOT
+  content = templatefile("${path.module}/blueprints/simple-iac.tmpl.yaml", {
+    infra_tag = each.value.infra_tag
+  })
 }
