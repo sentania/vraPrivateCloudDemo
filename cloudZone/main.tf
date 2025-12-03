@@ -1,11 +1,8 @@
 resource "vra_zone" "this" {
-  name        = replace(var.name, " ", "_")
+  name        = replace(var.name, " ", "-")
   description = var.description
   region_id   = var.region
   folder      = var.folder
-  #dynamic compute_ids {
-  #   var.compute_ids
-  #  }
 
   placement_policy = var.placement_policy
   dynamic "tags_to_match" {
