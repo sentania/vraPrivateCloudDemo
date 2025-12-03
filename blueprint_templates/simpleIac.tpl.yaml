@@ -23,7 +23,7 @@ resources:
       image: \${input.image}
       flavor: \${input.flavorSize}
       networks:
-        - network: ${resource.Cloud_Network_1.id}
+        - network: ${resource.ubuntuVM-network.id}
       storage:
         constraints:
           - tag: storageTier:iscsi
