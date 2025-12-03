@@ -5,7 +5,7 @@ terraform {
       version = ">= 0.3.3"
     }
     vsphere = {
-      source  = "hashicorp/vsphere"
+      source  = "vmware/vsphere"
       version = ">= 1.24.2"
     }
   }
