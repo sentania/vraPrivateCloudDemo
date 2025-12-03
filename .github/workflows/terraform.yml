@@ -17,11 +17,6 @@ jobs:
       TF_IN_AUTOMATION: "true"
       TF_INPUT: "false"
 
-      # PostgreSQL backend (stored in GitHub Secrets)
-      TF_VAR_backend_db_user: ${{ secrets.PSQL_TF_USER }}
-      TF_VAR_backend_db_pass: ${{ secrets.PSQL_TF_PASS }}
-      TF_VAR_backend_db_host: ${{ secrets.PSQL_TF_HOST }}
-      TF_VAR_backend_db_name: ${{ secrets.PSQL_TF_DB }}
 
       # vSphere / vRA / VCF environment-specific credentials
       TF_VAR_serviceAccountUserName: ${{ secrets.VCF_SERVICE_USER }}
@@ -36,7 +31,9 @@ jobs:
         run: terraform fmt -check
 
       - name: Terraform Init
-        run: terraform init -upgrade
+        run: |
+            terraform init -upgrade \
+            -backend-config="conn_strpostgres://${{ secrets.PSQL_TF_USER }}:${{ secrets.PSQL_TF_PASS }}@${{ secrets.PSQL_TF_HOST }}:5433/${{ secrets.PSQL_TF_DB }}?sslmode=disable"
 
       - name: Terraform Validate
         run: terraform validate
