@@ -18,3 +18,13 @@ module "projects" {
   basename       = each.value.basename
   cloud_zone_ids = local.all_cloud_zone_ids
 }
+
+locals {
+  projects_expanded = {
+    for k, v in var.projects :
+    k => {
+      project_id = module.projects[k].project.id
+      infra_tag  = v.infra_tag
+    }
+  }
+}
