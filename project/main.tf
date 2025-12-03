@@ -9,7 +9,7 @@ resource "vra_project" "this" {
   dynamic "zone_assignments" {
     for_each = var.cloud_zone_ids
     content {
-      cloud_zone_id = zone_assignments .value
+      zone_id           = zone_assignments.value
       priority      = 100
     }
   }
