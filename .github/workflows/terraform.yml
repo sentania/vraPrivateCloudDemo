@@ -33,7 +33,7 @@ jobs:
       - name: Terraform Init
         run: |
             terraform init -upgrade \
-            -backend-config="conn_strpostgres://${{ secrets.PSQL_TF_USER }}:${{ secrets.PSQL_TF_PASS }}@${{ secrets.PSQL_TF_HOST }}:5433/${{ secrets.PSQL_TF_DB }}?sslmode=disable"
+            -backend-config="conn_str=postgres://${{ secrets.PSQL_TF_USER }}:${{ secrets.PSQL_TF_PASS }}@${{ secrets.PSQL_TF_HOST }}:5433/${{ secrets.PSQL_TF_DB }}?sslmode=disable"
 
       - name: Terraform Validate
         run: terraform validate
