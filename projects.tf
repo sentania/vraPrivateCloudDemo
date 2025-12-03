@@ -4,7 +4,6 @@ locals {
   ]
 }
 
-
 module "projects" {
   source     = "./project"
   depends_on = [time_sleep.wait_cloud_account_creation]
