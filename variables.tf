@@ -18,3 +18,19 @@ variable serviceAccountUserName {
 variable serviceAccountPassword {
   type = string
 }
+
+variable backend_db_user {
+  type = string
+}
+
+variable backend_db_pass {
+  type = string
+}
+
+variable backend_db_host {
+  type = string
+}
+
+variable backend_db_name {
+  type = string
+}

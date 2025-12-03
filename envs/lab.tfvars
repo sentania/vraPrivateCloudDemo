@@ -1,3 +1,5 @@
+vcfa_url = "https://vcf-lab-automation.int.sentania.net"
+
 nsx_accounts = {
   nsx-wld02 = {
     name                = "vcf-lab-nsxmgr-wld02"
