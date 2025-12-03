@@ -6,10 +6,10 @@ resource "vra_project" "this" {
   administrators          = var.administrators
   operation_timeout       = 6000
   machine_naming_template = var.basename
-  dynamic "cloud_zone_assignments" {
+  dynamic "zone_assignments " {
     for_each = var.cloud_zone_ids
     content {
-      cloud_zone_id = cloud_zone_assignments.value
+      cloud_zone_id = zone_assignments .value
       priority      = 100
     }
   }
