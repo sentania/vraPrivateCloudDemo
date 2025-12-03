@@ -13,7 +13,22 @@ inputs:
     enum:
       - ubuntu24
       - ubuntu22
+  diskSize:
+    type: integer
+    default: 5
+    minimum: 1
+    maximum: 15
+  diskCount:
+    type: integer
+    default: 0
+    minimum: 0
+    maximum: 4
 resources:
+  ubuntuVM-disk:
+    type: Cloud.Volume
+    properties:
+      capacityGb: $${input.diskSize}
+      count: $${input.diskCount}
   ubuntuVM:
     type: Cloud.Machine
     properties:
@@ -22,6 +37,7 @@ resources:
         - tag: "application:${infra_tag}"
       image: $${input.image}
       flavor: $${input.flavorSize}
+      attachedDisks: $${map_to_object(resource["ubuntuVM-disk"][*].id, "source")}
       networks:
         - network: $${resource.ubuntuVM-network.id}
       storage:
