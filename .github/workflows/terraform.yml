@@ -32,16 +32,17 @@ jobs:
 
       - name: Terraform Init
         run: |
-            terraform init -upgrade \
-            -backend-config="conn_str=postgres://${{ secrets.PSQL_TF_USER }}:${{ secrets.PSQL_TF_PASS }}@${{ secrets.PSQL_TF_HOST }}:5433/${{ secrets.PSQL_TF_DB }}?sslmode=disable"
+             terraform init -upgrade \
+             -backend-config="conn_str=postgres://${{ secrets.PSQL_TF_USER }}:${{ secrets.PSQL_TF_PASS }}@${{ secrets.PSQL_TF_HOST }}:5433/${{ secrets.PSQL_TF_DB }}?sslmode=disable"
 
       - name: Terraform Validate
         run: terraform validate
 
       - name: Terraform Plan
-        run: terraform plan -input=false -no-color \
-                -var-file="envs/lab.tfvars" \
-                -out=tfplan
+        run: |
+              terraform plan -input=false -no-color \
+              -var-file="envs/lab.tfvars" \
+              -out=tfplan
 
       - name: Upload Plan Artifact
         uses: actions/upload-artifact@v4
