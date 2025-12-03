@@ -46,11 +46,25 @@ vsphere_accounts = {
 }
 
 projects = {
-  vcf-lab-sandbox = {
-    name           = "sandbox"
+  sandboxProject = {
+    name           = "vcf-lab-sandbox"
     description    = "This is a project created with TF - Do Not Edit"
     basename       = "vra-sandbox-$${####}"
     administrators = ["vcf@int.sentania.net", "labadmins@int.sentania.net"]
     infra_tag      = "sandbox"
+  }
+  hrproject = {
+    name           = "vcf-lab-human-resources"
+    description    = "This is a project created with TF - Do Not Edit"
+    basename       = "vra-hr-$${####}"
+    administrators = ["vcf@int.sentania.net", "labadmins@int.sentania.net"]
+    infra_tag      = "hr"
+  }
+  finance = {
+    name           = "vcf-lab-finance"
+    description    = "This is a project created with TF - Do Not Edit"
+    basename       = "vra-fnc-$${####}"
+    administrators = ["vcf@int.sentania.net", "labadmins@int.sentania.net"]
+    infra_tag      = "finance"
   }
 }
