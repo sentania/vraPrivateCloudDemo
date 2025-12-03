@@ -6,6 +6,7 @@ resource "vra_project" "this" {
   administrators          = var.administrators
   operation_timeout       = 6000
   machine_naming_template = var.basename
+  placement_policy = "SPREAD"
   dynamic "zone_assignments" {
     for_each = var.cloud_zone_ids
     content {
