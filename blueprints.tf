@@ -10,6 +10,7 @@ locals {
 
 
 module "simpleIACblueprint" {
+    depends_on = [module.projects]
   source = "./blueprint"
 
   for_each = local.projects_expanded
