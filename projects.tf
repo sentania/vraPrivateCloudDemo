@@ -8,7 +8,7 @@ locals {
 module "projects" {
   source     = "./project"
   depends_on = [time_sleep.wait_cloud_account_creation]
-  for_each = var.projects
+  for_each   = var.projects
 
   project_name   = each.value.name
   description    = each.value.description
