@@ -34,3 +34,11 @@ variable "backend_db_host" {
 variable "backend_db_name" {
   type = string
 }
+
+variable "nsx_accounts" {
+  type = string
+}
+
+variable "vsphere_accounts" {
+  type = string
+}
