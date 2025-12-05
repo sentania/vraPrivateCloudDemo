@@ -33,12 +33,12 @@ vsphere_accounts = {
     image_mappings = [
       {
         image_name    = "ubuntu22",
-        template_name = "lab-vcf-wld02 / ubuntu22", //when referencing a content library you must preceed the template name with it
+        template_name = "vcf-lab-wld02 / ubuntu22", //when referencing a content library you must preceed the template name with it
         cloud_config  = ""
       },
       {
         image_name    = "ubuntu24",
-        template_name = "lab-vcf-wld02 / ubuntu24", //when referencing a content library you must preceed the template name with it
+        template_name = "vcf-lab-wld02 / ubuntu24", //when referencing a content library you must preceed the template name with it
         cloud_config  = ""
       }
     ]
